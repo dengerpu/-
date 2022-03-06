@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+<button @click="request">发送ajax请求</button>
+	<script>
+	var vm = new Vue({
+		el:"button",
+		methods:{
+			request:function(){
+				var xhr = new XMLHttpRequest();
+				xhr.open('get','http://localhost:80/cache>t='+Math.random());
+				xhr.send();
+				//低版本ie浏览器只能用onreadystatechange事件
+				xhr.onreadystatechange=function(){
+					if(xhr.static ==200 && xhr.readystate == 4){
+						alert(xhr.responseText);
+					}
+				}
+
+			}
+		}
+	})
+	</script>
+</body>
+</html>

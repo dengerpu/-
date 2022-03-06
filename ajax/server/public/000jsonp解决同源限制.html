@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="/js/ajax.js"></script>
+</head>
+<body>
+	<button id="btn">点我发送请求</button>
+	<script >
+		function fn(data){
+			console.log('客户端的fn函数被调用了');
+			console.log(data);
+	}
+	</script>
+	<script type="text/javascript">
+		var btn = document.getElementById('btn');
+		btn.onclick = function(){
+			//创建一个script标签
+			var script = document.createElement('script');
+			script.src="http://localhost:3000/request?callback=fn";
+			document.body.appendChild(script);
+			//当script标签加载完毕后，需要删除，否则页面会产生很多script
+			script.onload = function(){
+				document.body.removeChild(script);
+			}
+		}
+	</script>
+</body>
+</html>

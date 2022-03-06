@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>$.ajax方法基本使用</title>
+	<script src="/js/jquery.js"></script>
+</head>
+<body>
+	<button id="btn">发送请求</button>
+	<script>
+		$('#btn').on('click', function () {
+			$.ajax({
+				url:'http://localhost/jsonp',
+				dataType:'jsonp',
+				jsonp:"cb",  //修改callback参数名称
+				// jsonpCallback:'fn',  //修改函数名称，需要自己定义全局函数fn，并且不需要success参数
+				success:function(response){
+					console.log(response);
+				}
+			})
+			// $.get('http://localhost/jquery',{name:"zhangsan"},function(data){
+			// 	console.log(data);
+			// })
+		});
+
+	</script>
+</body>
+</html>

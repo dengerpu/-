@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery提供的方法</title>
+	<script type="text/javascript" src="/js/jquery.js"></script>
+</head>
+<body>
+	<button>点击发送请求</button>
+	<script type="text/javascript">
+	$("button").on('click',function(){
+			$.ajax({
+		type:'get',
+		url:'/jquery',
+		data:{
+			name:'zahngsan',
+			age:'18'
+		},
+		//如果使用json类型，要转化为字符串，JSON.stringify
+		contentType:'application/x-www-form-urlencoded'
+		beforeSend:function(){
+			alert('开始发送请求');
+			//return false;    可以阻止请求发送
+		},
+		success:function(response){
+			console.log(response);
+		},
+		error:function(err){
+			console.log(err);
+		}
+	})
+})
+	</script>
+</body>
+</html>

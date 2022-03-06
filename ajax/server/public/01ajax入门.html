@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax入门</title>
+</head>
+<body>
+	<script type="text/javascript">
+	 //1.创建ajax对象
+	 const xhr = new XMLHttpRequest();
+	 //2.告诉ajax请求地址以及请求方式
+	 xhr.open('get','http://localhost:80/first');
+	 //3.发送请求
+	 xhr.send();
+	 //4.获取服务器与客服端的响应数据
+	 xhr.onload = function(){
+	 	console.log(xhr.responseText);
+	 }
+	</script>
+</body>
+</html>

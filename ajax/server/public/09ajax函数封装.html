@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function ajax(options){
+		//如果没有传参数就是用默认值
+		var defaults = {
+			type:'get',
+			url:'',
+			data:{},
+			header:{'Content-Type':'application/x-www-form-urlencoded'},
+			success:function(){},
+			error:function(){}
+		}
+		//对象覆盖
+		Object.assign(defaults,options);
+
+		//创建ajax实例对象
+		var xhr = new XMLHttpRequest();
+		//拼接传递过来的参数
+		var params = '';
+		//遍历对象，拼接参数
+		for(attr in defaults.data){
+			params = params + attr + '=' +defaults.data[attr]+'&';
+		}
+		//去掉最后一个&符号
+		params = params.substr(0,params.length-1);
+
+		if(defaults.type == 'get'){
+			//get请求需要把参数拼接到请求地址上
+			defaults.url+='?'+params;
+		}
+		xhr.open(defaults.type,defaults.url);
+		//如果是post请求，需要把参数放在send（）里面
+		if(defaults.type == 'post'){
+			var contentType = defaults.header['Content-Type'];
+			xhr.setRequestHeader('Content-Type',contentType);
+			if(contentType == 'application/json'){
+				//JSON参数
+				xhr.send(JSON.stringify(defaults.data));
+			}else{
+				xhr.send(params);
+			}	
+		}else{
+			xhr.send();
+		}
+		
+		xhr.onload = function(){
+			// 获取响应头的数据类型，也就是从服务器返回来的服务类型
+			var contentType = xhr.getResponseHeader('Content-Type');
+			var responseText = xhr.responseText;
+			//如果是application/json类型,就转化为对象类型
+				if(contentType.includes('application/json')){
+					responseText = JSON.parse(responseText);
+				}
+			//当状态码为200说明请求成功
+			if(xhr.status == 200){
+				defaults.success(responseText,xhr);
+			}else{
+				//发生错误时
+				defaults.error(responseText,xhr);
+			}
+			
+		}
+	}
+	ajax({
+		url:'http://localhost:80/responseDate',
+		data:{
+			name:'zhangsan',
+			age:18
+		},
+		success:function(data){
+			console.log('成功');
+			console.log(data);
+		},
+	})
+	</script>
+</body>
+</html>

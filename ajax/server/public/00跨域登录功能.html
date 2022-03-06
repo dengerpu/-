@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>实现跨域功能</title>
+	<link rel="stylesheet" href="/assets/bootstrap/dist/css/bootstrap.min.css">
+	<style type="text/css">
+		.container {
+			padding-top: 60px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<form id="loginForm">
+			<div class="form-group">
+				<label>用户名</label>
+				<input type="text" name="username" class="form-control" placeholder="请输入用户名">
+			</div>
+			<div class="form-group">
+				<label>密码</label>
+				<input type="password" name="password" class="form-control" placeholder="请输入用密码">
+			</div>
+			<input type="button" class="btn btn-default" value="登录" id="loginBtn">
+			<input type="button" class="btn btn-default" value="检测用户登录状态" id="checkLogin">
+		</form>
+	</div>
+	<script type="text/javascript">
+		// 获取登录按钮
+		var loginBtn = document.getElementById('loginBtn');
+		// 获取检测登录状态按钮
+		var checkLogin = document.getElementById('checkLogin');
+		// 获取登录表单
+		var loginForm = document.getElementById('loginForm');
+		//为登录按钮添加登陆时间
+		loginBtn.onclick = function(){
+			//将表单对象转化
+			var formData = new FormData(loginForm);
+			var xhr = new XMLHttpRequest();
+			xhr.open('post','http://localhost:3000/login');
+			//当发送跨域请求时携带cookie信息
+			xhr.withCredentials = true;
+			xhr.send(formData);
+			xhr.onload = function(){
+				if(xhr.status == 200){
+					console.log(xhr.responseText);
+				}
+			}
+		}
+		//检测用户的登陆
+		checkLogin.onclick = function(){
+			var xhr = new XMLHttpRequest();
+			xhr.open('get','http://localhost:3000/checkLogin');
+			xhr.withCredentials = true;
+			xhr.send();
+			xhr.onload = function(){
+				console.log(xhr.response);
+			}
+		}
+	</script>
+</body>
+</html>
