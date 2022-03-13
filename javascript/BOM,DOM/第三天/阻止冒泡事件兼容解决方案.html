@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阻止事件冒泡兼容性解决方案</title>
+	<style>
+		div{
+			background-color: red;
+			width: 200px;
+			height: 200px;
+		}
+		p{
+			background-color: pink;
+			width: 100px;
+			height: 100px;
+			margin:50 50 auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<p class="son"></p>
+	</div>
+	<script>
+	var div=document.querySelector('.father');
+	var p=document.querySelector('.son');
+	var d=document.documentElement;
+	div.addEventListener('click',function(){
+		alert('father');
+
+	},false);
+	p.addEventListener('click',function(e){
+		alert('son');
+		//e.stopPropagation();   //阻止事件冒泡
+		//IE6-8需要  用  e.cancelBubble=true;
+	    if(e&&e.stopPropagation){
+	    	e.stopPropagation();
+	    }else{
+	    	window.wvwnt.cancelBubble=true;
+	    }
+	},false);
+	d.addEventListener('click',function(){
+		alert('document');
+	},false);
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function day(year){
+		if(year%400==0||(year%4==0&&year%100!=0))
+			return true;
+		else
+			return false;
+	}
+	var year=prompt('请输入年份');
+	if(day(year))
+		alert(year+'年2月有28天');
+	else
+		alert(year+'年2月有29天');
+	</script>
+</body>
+</html>

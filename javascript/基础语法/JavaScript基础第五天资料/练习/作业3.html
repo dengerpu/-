@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>利用new Object创建对象</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var car=new Object();
+	car.weight=300;
+	car.color='黑色';
+	car.name='玛莎拉蒂';
+	car.skill=function(){
+		alert('载人，拉货，耕田');
+	}
+	for(var k in car){
+		console.log(k);
+		console.log(car[k]);
+	}
+
+	</script>
+</body>
+</html>

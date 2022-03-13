@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册事件的三种方式</title>
+</head>
+<body>
+	<button>按钮1</button>
+	<button>按钮2</button>
+	<button>按钮3</button>
+	<script type="text/javascript">
+	var btn=document.getElementsByTagName('button');
+	//传统方式注册事件，特点是唯一性，同一元素同一个事件只能设置一个处理函数，最后注册的处理函数将会覆盖前面的处理函数
+	btn[0].onclick=function(){
+		alert('我是传统方式注册事件');
+	}
+	btn[0].onclick=function(){
+		alert('我是传统方式注册事件的第二个函数');
+	}
+
+	//方法监听注册方式
+	//w3c标准，推荐方式  addEventListener();
+	//IE9以前支持，IE9以前可以用attachEvent();
+	//同一个元素同一个是啊金可以注册多个监听器
+	btn[1].addEventListener('click',function(){
+		alert('addEventListener方式注册事件');
+	})
+	</script>
+</body>
+</html>

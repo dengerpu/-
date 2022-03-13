@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简单发布留言案列</title>
+	<style>
+		*{
+			margin:0; padding: 0;
+		}
+		div{
+			margin:100px 200px auto;
+		}
+		textarea{
+			width: 300;
+			height: 150px;
+		}
+		li{
+			background-color: pink;
+			font-size: 20px;
+			color: blue;
+			margin-top:5px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<textarea>请留言</textarea>
+		<button>发布</button>
+	</div>
+	<div class="liuyan">
+		<ul type="none">
+			<li>1</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+	var text=document.querySelector('textarea');
+	text.onfocus=function(){
+		if(text.value=="请留言"){
+			this.value="";
+			this.style.color="#333";
+			this.style.fontSize="14px";
+		}
+	}
+	text.onblur=function(){
+		if(this.value==""){
+			this.value="请留言";
+			this.style.color="#999";
+			this.style.fontSize="";
+		}
+	}
+	var btn=document.querySelector('button');
+	var ul=document.querySelector('ul');
+	btn.onclick=function(){
+		if(text.value!="请留言"){
+		var li=ul.children[0]
+		var li1=document.createElement('li');
+		li1.innerHTML=text.value
+		ul.insertBefore(li1,li);
+	}
+	}
+	</script>
+</body>
+</html>

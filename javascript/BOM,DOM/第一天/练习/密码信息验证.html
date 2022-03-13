@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>密码信息验证</title>
+	<style type="text/css">
+	div{
+		position:relative;
+	}
+		input{
+			width: 400px;
+			height: 30px;
+			font-size: 20px;
+		}
+		.message{
+			color:#999;
+			display: inline-block;
+			font-size: 20px;
+			background: url(images/mess.png) no-repeat left center;
+			padding-left: 20px;
+		}
+		.wrong{
+			color: red;
+			background-image: url(images/wrong.png);
+		}
+		.right{
+			color: green;
+			background-image: url(images/right.png)
+		}
+		img{
+			position: absolute;
+			top:18px;
+			left: 338px;
+			width: 30px;
+		}
+
+	</style>
+</head>
+<body>
+	<div>
+	<input type="password" placeholder="请输入密码">
+	<p class="message">请输入6-16位密码</p>
+	<img src="images/close.png">
+	</div>
+	<script type="text/javascript">
+	var text=document.querySelector('input');
+	var message=document.querySelector('.message');
+	var img=document.querySelector('img');
+	var flag=0;
+	img.onclick=function(){
+		if(flag==0){
+			text.type="text";
+			img.src="images/open.png";
+			flag=1;
+		}else if(flag==1){
+			text.type="password";
+			img.src="images/close.png";
+			flag=0;
+		}
+	}
+	text.onblur=function(){
+		if(this.value.length<6||this.value.length>16){
+			message.className="message wrong";
+			message.innerHTML='你输入的位数不符合要求';
+		}else{
+			message.className="message right";
+			message.innerHTML="你输入的正确";
+		}
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>addEventListener()方法监听事件</title>
+</head>
+<body>
+	<button>按钮</button>
+	<script>
+	//eventTarget.addEventListener(type,listener[,useCapture]);
+	//type 事件类型字符串 click,mouseover 这里不用加on
+	//listener 事件处理函数，事件发生后会调用监听该函数
+	var btn=document.querySelector('button');
+	btn.addEventListener('click',function(){
+		alert('点击');
+	})
+	btn.addEventListener('click',function(){
+		alert('点击第二次');
+	})
+	</script>
+</body>
+</html>

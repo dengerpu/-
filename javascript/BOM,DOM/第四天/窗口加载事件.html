@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>窗口加载事件</title>
+</head>
+<body>		<script type="text/javascript">
+			window.addEventListener('load',function(){
+				var btn=document.querySelector('button');
+			btn.addEventListener('click',function(){
+				alert('页面全部加载完点击事件');
+			})
+
+			})
+			document.addEventListener('DOMContentLoaded',function(){
+			var btn=document.querySelector('button');
+			btn.addEventListener('click',function(){
+				alert('DOM加载完点击事件');
+
+			})
+		    })
+			</script>
+			<button>按钮</button>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件捕获练习</title>
+	<style>
+		.father{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+		.son{
+			margin:0 auto;
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+	<script type="text/javascript">
+	var father=document.querySelector('.father');
+	var son=document.querySelector('.son');
+	son.addEventListener('click',function(){
+		alert('son');
+	},true);
+	father.addEventListener('click',function(){
+		alert('father');
+	},true);
+	</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>swiper插件使用</title>
+<!-- 	1.首先加载插件，需要用到的文件有swiper.min.js和swiper.min.css文件。 -->
+  	<link rel="stylesheet" type="text/css" href="swiper.min.css">
+  	<script type="text/javascript" src="swiper.min.js"></script>
+  	<style type="text/css">
+		.focus{
+			width: 750px;
+			height: 150px;
+			margin: 100px 100px auto;
+		}
+
+  	</style>
+</head>
+<body>
+	<div class="focus">
+		  <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="images/focus1.jpg"></div>
+      <div class="swiper-slide"><img src="images/focus2.jpg"></div>
+      <div class="swiper-slide"><img src="images/focus3.jpg"></div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+	</div>
+	<!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 1000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+</body>
+</html>

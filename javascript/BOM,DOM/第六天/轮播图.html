@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+	<script type="text/javascript" src='animate.js'></script>
+	<style type="text/css">
+		*{margin: 0px; padding: 0px;}
+		.box{
+			position: relative;
+			width: 721px;
+			height: 455px;
+			border: 1px solid red;
+			margin: 100px 300px auto;
+			overflow: hidden;
+		}
+		.box-ul{
+			position: absolute;
+			left: 0px;
+			width: 5000px;
+		}
+		.box-ul li{
+			float: left;
+		}
+		.left,.right{
+			position: absolute;
+			top: 44%;
+			width: 24px;
+			height: 40px;
+			background-color: rgba(0, 0, 0, .3);
+			text-align: center;
+			line-height: 40px;
+			font-size: 18px;
+			font-family: 'icomoon';
+			color: #fff;
+			z-index: 2;
+		}
+		.left{
+			display: none;
+			left: 0px;
+		}
+		.right{
+			display: none;
+			right: 0px;
+		}
+		.box-ol{
+			position: absolute;
+			bottom: 10px;
+			left: 45%;
+			list-style-type: none;
+		}
+		.box-ol li{
+			float: left;
+			width: 8px;
+			height: 8px;
+			border: 2px solid rgba(255, 255, 255, 0.5);
+			margin: 0 3px;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+		.current{
+			background-color: white;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<a herf="javascript:;" class="left">&lt</a>
+		<a herf="javascript:;" class="right">></a>
+		<ul class='box-ul' type='none'>
+			<li class="img"><img src="images/focus.jpg"></li>
+			<li><img src="images/focus1.jpg"></li>
+			<li><img src="images/focus2.jpg"></li>
+			<li><img src="images/focus3.jpg"></li>
+		</ul>
+		<ol  class="box-ol">
+		</ol>
+	</div>
+	<script type="text/javascript">
+	var box=document.querySelector('.box');
+	var leftbtn=document.querySelector('.left');
+	var rightbtn=document.querySelector('.right');
+	var ul=document.querySelector('.box-ul');
+	var img=document.querySelector('.img');
+	var ol=document.querySelector('.box-ol');
+	var num=0,circle=0; 
+	var imgwidth=img.children[0].offsetWidth;//图片宽度
+	//1.鼠标经过，箭头展现
+	box.addEventListener('mouseenter',function(){
+		leftbtn.style.display="block";
+		rightbtn.style.display="block";
+		clearInterval(timer);
+		timer=null;
+	})
+	box.addEventListener('mouseleave',function(){
+		leftbtn.style.display="none";
+		rightbtn.style.display="none";
+		timer=setInterval(function(){
+		rightbtn.click();
+	},2000)
+	})
+    //2.动态生成小圆圈,并且给小圆圈添加事件
+    for(var i=0;i<ul.children.length;i++){
+    	var li=document.createElement('li');
+    	li.setAttribute('index',i);
+    	ol.appendChild(li);
+    	li.addEventListener('click',function(){
+    		for(var i=0;i<ol.children.length;i++)
+    			ol.children[i].className="";
+    		this.className="current";
+    		var index=this.getAttribute('index');
+    		num=index;
+    		circle=index;
+    		animate(ul,-index*imgwidth);
+    	})
+    }
+	//3.点击左右箭头实现照片的切换
+	circleChange();
+	var li=document.createElement('li');
+	li=ul.children[0].cloneNode(true);
+	ul.appendChild(li);
+	rightbtn.addEventListener('click',function(){
+		if(num==ul.children.length-1){
+			ul.style.left=0;
+			num=0;
+		}
+		num++;
+		animate(ul,-num*imgwidth);
+		circle++;
+		if(circle==ol.children.length)
+			circle=0;
+		circleChange();
+	})
+	leftbtn.addEventListener('click',function(){
+		if(num==0){
+			ul.style.left=-num*imgwidth+'px';
+			num=ul.children.length-1;
+		}
+		num--;
+		animate(ul,-num*imgwidth);
+		circle--;
+		circle = circle < 0 ? ol.children.length - 1 : circle;
+            // 调用函数
+            circleChange();
+	})
+
+	function circleChange(){
+		for(var i=0;i<ol.children.length;i++){
+			ol.children[i].className="";
+		}
+		ol.children[circle].className="current";
+	}
+
+	var timer=setInterval(function(){
+		rightbtn.click();
+	},2000)
+	</script>
+</body>
+</html>

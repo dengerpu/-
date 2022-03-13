@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>三种动态创建元素的区别</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//利用document.write(),直接将内容写入页面的内容流，但是文档流执行完毕，则会导致页面全部重绘
+		document.write('哈哈哈哈');
+		document.write('第二个哈哈哈');
+		//innerHTML是将内容写入某个DOMM结点，不会导致重绘
+		//innerHtml创建多个元素效率更高（不要拼接字符串，采用数组性形式拼接），结构稍微复杂。
+		var body=document.body;
+		body.innerHTML="<a href='#'>我是一个a标签</a>"
+		//使用createElement创建多个元素效率会稍微差一点但是结构更清晰
+		var li=document.createElement('li');
+		li.innerHTML="我是一个小li";
+		body.appendChild(li);
+	</script>
+</body>
+</html>

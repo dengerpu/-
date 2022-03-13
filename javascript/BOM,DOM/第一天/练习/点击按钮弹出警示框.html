@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点击按钮弹出警示框</title>
+</head>
+<body>
+	<button>你好</button>
+	<input class="bt" type="button" value="哈哈哈哈">
+	<script type="text/javascript">
+			var button=document.getElementsByTagName('button');   //通过标签获取元素集合
+			button[0].onclick=function(){
+				alert('你好呀');
+			}
+			var bt=document.getElementsByClassName('bt');		//通过类名获取元素集合
+			bt[0].onclick=function(){
+				alert('哈哈哈哈');
+			}
+	</script>
+</body>
+</html>

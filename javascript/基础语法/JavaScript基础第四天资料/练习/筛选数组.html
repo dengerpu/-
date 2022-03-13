@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>筛选数组</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//要求：将数组 [2, 0, 6, 1, 77, 0, 52, 0, 25, 7] 中大于等于 10 的元素选出来，放入新数组。
+	var a=[2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+	var b=[];
+	for(var i=0;i<a.length;i++){
+		if(a[i]>10){
+			b[b.length]=a[i];
+		}
+	}
+	document.write(b);
+	</script>
+</body>
+</html>

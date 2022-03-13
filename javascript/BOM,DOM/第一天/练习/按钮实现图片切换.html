@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>按钮实现图片切换</title>
+	<style type="text/css">
+		img{
+			width: 800px;
+			height: 1000px;
+		}
+		div{
+			margin:0 auto;
+			margin-left: 500px;
+		}
+	</style>
+</head>
+<body>
+    <div>
+	<button id="dlrb">迪丽热巴</button>
+	<input id="zly" type="button" value="赵丽颖"><br>
+	<img src="images/dlrb.jpg" alt="迪丽热巴" title="迪丽热巴">
+	</div>
+	<script type="text/javascript">
+	var dlrb=document.getElementById('dlrb');
+	var zly=document.getElementById('zly');
+	var img=document.getElementsByTagName('img');//也可以通过  document.querySelector()来获取对象
+	dlrb.onclick=function(){
+			img[0].src="images/dlrb.jpg";
+			img[0].alt="迪丽热巴";
+			img[0].title="迪丽热巴";
+	}
+	zly.onclick=function(){
+			img[0].src="images/zly.jpg";
+			img[0].alt="赵丽颖";
+			img[0].title="赵丽颖";
+	}
+	</script>
+</body>
+</html>

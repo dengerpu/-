@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画实现原理</title>
+	<style>
+		div{
+			position: absolute;
+			left: 0px;
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+<button>按钮</button>
+	<div></div>
+
+<script type="text/javascript">
+	var btn=document.querySelector('button');
+	var div=document.querySelector('div');
+	btn.addEventListener('click',function(){
+		var time=setInterval(function(){
+			if(div.offsetLeft==400){
+				clearInterval(time);
+			}else{
+				div.style.left=div.offsetLeft+1+'px';
+			}
+		},15)
+	})
+</script>
+</body>
+</html>

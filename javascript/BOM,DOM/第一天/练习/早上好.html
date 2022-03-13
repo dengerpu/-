@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>早上好案例</title>
+	<style type="text/css">
+	#img{
+		width: 800px;
+		height: 800px;
+	}
+
+	</style>
+</head>
+<body>
+	
+	<img id="img" src="images/早上好.png">
+	<div>
+	早上好，要好好写代码哦!
+	</div>
+	<script type="text/javascript">
+	var img=document.getElementById('img');
+	var div=document.querySelector('div');
+		function time(){
+			var date=new Date();
+			var year=date.getFullYear();
+			var month=date.getMonth()+1;
+			var day=date.getDate();
+			var h=date.getHours();
+			h=h<10?'0'+h:h;
+			var m=date.getMinutes();
+			m=m<10?'0'+m:m;
+			var s=date.getSeconds();
+			s=s<10?'0'+s:s;
+			return ('今天是'+year+'年'+month+'月'+day+'天'+h+'时'+m+'分'+s+'秒');
+		}
+		alert(time());
+		var date=new Date();
+		var h=date.getHours();
+		if(h<8){
+			img.src="images/早上好.png";
+			div.innerHTML="早上好，要好好写代码哦！";
+
+		}else if(h<12){
+			img.src="images/中午好.gif";
+			div.innerHTML="中上好，要好好写代码哦！";
+		}
+		else if(h<24){
+			img.src="images/晚上好.gif";
+			div.innerHTML="晚上好，要好好写代码哦！";
+		}
+	</script>
+</body>
+</html>

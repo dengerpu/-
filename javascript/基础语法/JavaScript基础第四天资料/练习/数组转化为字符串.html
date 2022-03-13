@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组转化为字符串</title>
+</head>
+<body>
+	<script type="text/javascript">
+//要求：将数组 ['red', 'green', 'blue', 'pink'] 里面的元素转换为字符串
+ 	var a=['red', 'green', 'blue', 'pink'];
+ 	var str='';
+ 	for(var i=0;i<a.length;i++)
+ 		str+=a[i];
+ 	console.log(str);
+ 	//利用join方法可以把数组转化为字符串
+ 	a=a.join();
+ 	console.log(a);
+ 	//利用split()方法可以将字符串转化为字符数组
+ 	var s=a.split('-');
+ 	console.log(s);
+ 	document.write(s);
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组求最大值</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function max(arr){
+		max =arr[0];
+		for(var i=1;i<arr.length;i++){
+			if(arr[i]>max)
+				max=arr[i];
+		}
+		return max;
+	}
+	var arr=[5,2,99,101,67,77];
+	console.log(max(arr));
+	</script>
+</body>
+</html>

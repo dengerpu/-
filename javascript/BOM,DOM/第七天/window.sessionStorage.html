@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" name=""><button>存储数据</button><button>获取数据</button><button>删除数据</button><button>删除所有数据</button>
+	<script type="text/javascript">
+	var btn=document.querySelectorAll('button');
+	var input=document.querySelector('input');
+	btn[0].addEventListener('click',function(){
+		sessionStorage.setItem('name',input.value);
+	})
+	btn[1].addEventListener('click',function(){
+		console.log(sessionStorage.getItem('name'));
+	})
+	btn[2].addEventListener('click',function(){
+		sessionStorage.removeItem('name');
+	})
+	btn[3].addEventListener('click',function(){
+		sessionStorage.clear();
+	})
+	</script>
+</body>
+</html>

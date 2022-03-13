@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易计算器</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var str=prompt('请输入表达式,中间用空格隔开');
+	var arr=str.split(' ');
+	var a='',b='',c='';
+	var j;
+	for(var i=0;i<arr.length;i++){
+		if(arr[i]==' ')
+		continue;
+		if(arr[i]=='+'||arr[i]=='-'||arr[i]=='*'||arr[i]=='/')
+			{
+				j=i;
+				break;
+			}
+			a+=arr[i];
+		
+	}
+	b+=arr[j];
+	c+=arr.slice(j+1,arr.length);
+	console.log(a);
+	console.log(b);
+	console.log(c);
+	function count(a,b){
+		var arr=[a+b,a-b,a*b,a/b];
+		return arr;
+	}
+	var reasult;
+	var arr1=count(parseInt(a),parseInt(c));
+	switch(b){
+		case '+':reasult=arr1[0];alert(a+b+c+'='+reasult);break;
+		case '-':reasult=arr1[1];alert(a+b+c+'='+reasult);break;
+		case '*':reasult=arr1[2];alert(a+b+c+'='+reasult);break;
+		case '/':reasult=arr1[3];alert(a+b+c+'='+reasult);break;
+	}
+	</script>
+</body>
+</html>

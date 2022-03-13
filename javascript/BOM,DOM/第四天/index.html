@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+</head>
+<body>
+	<div></div>
+	<script type="text/javascript">
+		var message=location.search.substr(1);
+		var arr=message.split("=");
+		var div=document.querySelector('div');
+		div.innerHTML=arr[1]+'欢迎你';
+
+	</script>
+</body>
+</html>

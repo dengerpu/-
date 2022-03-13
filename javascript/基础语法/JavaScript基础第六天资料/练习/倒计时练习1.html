@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var date=new Date();
+	var countdate=function(time){
+		var nowtime=+new Date();
+		var inputtime=+new Date(time);
+		var counttime=parseInt(inputtime-nowtime)/1000;
+		var d=parseInt(counttime/60/60/24);
+		d=d<10?'0'+d:d;
+		var h=parseInt(counttime/60/60%24);
+		h=h<10?'0'+h:h;
+		var m=parseInt(counttime/60%60);
+		m=m<10?'0'+m:m;
+		var s=parseInt(counttime%60);
+		s=s<10?'0'+s:s;
+		console.log('倒计时：'+d+'天'+h+'时'+m+'分'+s+'秒');
+	}
+	countdate('2020-1-10 00:00:00');
+	</script>
+</body>
+</html>

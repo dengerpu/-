@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建添加删除结点</title>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>1</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+	//document.createElement('tagName');方法创建由tagName指定的HTML元素，因为这些元素原先不存在，是根据我们的要求动态生成的，所以我们也称之为动态创建元素结点。
+	 var li=document.createElement('li');
+	 //添加结点
+	 //node.appendChild(child);//该方法将一个结点添加到指定父节点的子节点列表末尾，类似于css里面的after元素
+	 var ul=document.getElementsByTagName('ul');
+	 li.innerHTML="2";
+	 ul[0].appendChild(li);
+	 //node.insertBefore(child,指定元素)，该方法将一个结点添加到父节点的指定结点前面，类似于css俩面的before
+	 var lis=document.querySelector('li');
+	 var li0=document.createElement('li');
+
+	 li0.innerHTML="0";
+	 ul[0].insertBefore(li0,lis);
+	</script>
+</body>
+</html>

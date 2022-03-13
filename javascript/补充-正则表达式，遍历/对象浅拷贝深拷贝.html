@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象浅拷贝深拷贝</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var obj1={
+		name:'zs',
+		age:18,
+		sex:'男',
+		dog:{
+			name:'11',
+			age:2
+		},
+		friends:['ls','aa']
+	}
+
+	function copy(o1,o2){
+		for(var key in o1){
+			o2[key]=o1[key];
+		}
+	}
+	var obj2={},obj3={};
+	obj1.name="000";
+	copy(obj1,obj2);
+	console.log(obj2);
+
+
+	//深匹配
+	function deepcopy(o1,o2){
+		for(key in o1){
+			var item=o1[key];
+			if(item instanceof Object){
+				o2[key]={};
+				deepcopy(item,o2[key]);
+			}else if(item instanceof Array){
+				o2[key]=[];
+				deepcopy(item,o2[key]);
+			}else{
+				o2[key]=o1[key];
+			}
+		}
+	}
+	deepcopy(obj1,obj3);
+	console.log(obj3);
+	</script>
+</body>
+</html>

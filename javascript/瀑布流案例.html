@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>瀑布流案例</title>
+	<style type="text/css">
+		*{margin: 0;
+			padding: 0;
+		}
+		.itemBox{
+			position: relative;
+			width: 1050px;
+			margin: 0 auto;
+		}
+		.item{
+			position: absolute;
+			border: 1px solid #ccc;
+			padding: 4px;
+			
+		}
+	</style>
+</head>
+<body>
+	<div class="itemBox">
+		<div class="item"><img src="images/p_000.jpg" alt=""></div>
+		<div class="item"><img src="images/p_001.jpg" alt=""></div>
+		<div class="item"><img src="images/p_002.jpg" alt=""></div>
+		<div class="item"><img src="images/p_003.jpg" alt=""></div>
+		<div class="item"><img src="images/p_004.jpg" alt=""></div>
+		<div class="item"><img src="images/p_005.jpg" alt=""></div>
+		<div class="item"><img src="images/p_006.jpg" alt=""></div>
+		<div class="item"><img src="images/p_007.jpg" alt=""></div>
+		<div class="item"><img src="images/p_008.jpg" alt=""></div>
+		<div class="item"><img src="images/p_009.jpg" alt=""></div>
+		<div class="item"><img src="images/p_010.jpg" alt=""></div>
+		<div class="item"><img src="images/p_011.jpg" alt=""></div>
+		<div class="item"><img src="images/p_012.jpg" alt=""></div>
+		<div class="item"><img src="images/p_013.jpg" alt=""></div>
+		<div class="item"><img src="images/p_014.jpg" alt=""></div>
+		<div class="item"><img src="images/p_015.jpg" alt=""></div>
+		<div class="item"><img src="images/p_016.jpg" alt=""></div>
+		<div class="item"><img src="images/p_017.jpg" alt=""></div>
+		<div class="item"><img src="images/p_018.jpg" alt=""></div>
+		<div class="item"><img src="images/p_019.jpg" alt=""></div>
+
+	</div>
+	<script type="text/javascript">
+	window.onload=function(){
+	var Box=document.querySelector('.itemBox');
+	var items=document.getElementsByClassName('item');
+		// 获取列数
+	var imgWidth=items[0].offsetWidth;
+	var column=parseInt(Box.offsetWidth/items[0].offsetWidth);
+	//获取间距
+	 var distance=(Box.offsetWidth-column*items[0].offsetWidth)/(column-1);
+	 var arr=[];
+	 	 	var json = [
+{ "src": "images/P_000.jpg" },
+{ "src": "images/P_001.jpg" },
+{ "src": "images/P_002.jpg" },
+{ "src": "images/P_003.jpg" },
+{ "src": "images/P_004.jpg" },
+{ "src": "images/P_005.jpg" },
+{ "src": "images/P_006.jpg" },
+{ "src": "images/P_007.jpg" },
+{ "src": "images/P_008.jpg" },
+{ "src": "images/P_009.jpg" },
+{ "src": "images/P_010.jpg" }
+];
+	 //滚动页面时家在数据
+	 	waterFull();
+	 window.onscroll=function(){
+	 	if(window.pageYOffset+window.innerHeight>getMin(arr).minV){
+	 		for(var i=0;i<json.length;i++){
+	 			var div=document.createElement('div');
+	 			div.className="item";
+	 			var img=document.createElement('img');
+	 			img.src=json[i].src;
+	 			div.appendChild(img);
+	 			Box.appendChild(div);
+			}
+			waterFull();		
+	 	}
+ 	
+	 }
+	function waterFull(){
+	 	for(var i=0,len=items.length;i<len;i++){
+	 		console.log(items.length);
+	 // 先第一排添加图片
+	 		if(i<column){
+	 			items[i].style.left=(imgWidth+distance)*i+'px';
+	 			arr[i]=items[i].offsetHeight;
+	 		}else{
+	 			var minI=getMin(arr).minI;
+	 			var minV=getMin(arr).minV;
+	 			items[i].style.top=minV+distance+'px';
+	 			items[i].style.left=minI*(imgWidth+distance)+'px';
+	 			//更新高度
+	 			arr[minI]=minV+distance+items[i].offsetHeight;
+	 		}
+		 }
+	}
+	function getMin(arr){
+	 		var obj={};
+	 		obj.minV=arr[0];
+	 		obj.minI=0;
+	 		for(var i=1,len=arr.length;i<len;i++){
+	 			if(obj.minV>arr[i]){
+	 				obj.minV=arr[i];
+	 				obj.minI=i;
+	 			}
+	 		}
+	 		return obj;
+	}
+
+
+}
+	</script>
+</body>
+</html>

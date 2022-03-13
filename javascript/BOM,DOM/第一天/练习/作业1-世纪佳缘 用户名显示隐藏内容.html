@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>世纪佳缘</title>
+	<style type="text/css">
+		input{
+			outline: none;
+			color: #999;
+		}
+		.open{
+			outline-color: pink;hsff
+			outline-style: solid;
+			outline-width: 0.5px;
+			color:#333;
+		}
+		.close{
+			outline-color: #999;
+			outline-style: solid;
+			outline-width: 0.5px;
+			color: #999;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<input class="ac" type="text" value="邮箱/ID/手机号">
+		<input class="pwd" type="text" value="密码">
+	</div>
+	<script type="text/javascript">
+	var ac=document.querySelector('.ac');
+	var pwd=document.querySelector('.pwd');
+	ac.onfocus=function(){
+		if(this.value=="邮箱/ID/手机号"){
+		this.value="";
+		this.className="open";	
+		}	
+	}
+	ac.onblur=function(){
+		if(this.value==""){
+			this.value="邮箱/ID/手机号";
+			this.className="close";
+		}
+	}
+	pwd.onfocus=function(){
+		if(this.value=="密码");
+		this.value="";
+		this.type="password";
+		this.className="open";
+	}
+	pwd.onblur=function(){
+		if(this.value==''){
+			this.type="text";
+			this.value="密码";
+			this.className="close";
+		}
+	}
+	</script>
+</body>
+</html>

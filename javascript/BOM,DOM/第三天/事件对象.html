@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件对象</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+		p{
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+		}		
+	</style>
+</head>
+<body>
+	<div></div>
+	<p>p标签</p>
+	<script>
+		var div=document.querySelector('div');
+		div.onclick=function(e){
+			console.log(e);
+		}
+		var p=document.querySelector('p');
+		p.addEventListener('click',function(e){
+			e=e||window.event;   //兼容性解决方案
+			console.log(e);
+		})
+	</script>
+</body>
+</html>

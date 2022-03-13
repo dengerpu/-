@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>构造函数创建对象</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function Person(name,age,sex){
+		this.name=name;
+		this.age=age;
+		this.sex=sex;
+		this.say=function(){
+			alert('我的名字叫'+this.name+',年龄'+this.age+'性别：'+this.sex);
+		}
+	}
+	var a=new Person('大白',100,'男');
+	var b=new Person('小白',21,'女');
+	a.say();
+	b.say();
+	</script>
+</body>
+</html>

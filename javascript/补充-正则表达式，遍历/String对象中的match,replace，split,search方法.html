@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>String</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//match,提取多个内容 esec只能提取一个
+		var str="张三：100，李四：200";
+		var reg=/\d+/gi;
+		console.log(str.match(reg));
+
+		//提取日期中的年部分
+		//split方法
+		var str='2000-02-02';
+		console.log(str.split('-'));
+		//replace替换内容
+		var str="  abc  bch  1345a45  ";
+		//trim()去掉前后的空格
+		// console.log(str.trim());
+		// replace只能替换掉第一个查找到的内容
+		// console.log(str.replace(' ','x'));
+		console.log(str.replace(/\s/g,''));
+	</script>
+</body>
+</html>

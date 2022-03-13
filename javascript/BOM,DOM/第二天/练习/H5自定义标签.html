@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>H5自定义标签</title>
+</head>
+<body>
+	<!--H5规定自定义属性以data-开头作为属性名并赋值-->
+	<div data-index="1"></div>
+	<script type="text/javascript">
+	var div=document.querySelector('div');
+	div.setAttribute('data-ind',2);
+	//获取属性值方法
+	console.log(div.getAttribute('data-ind'));
+	console.log(div.dataset.index);
+	console.log(div.dataset['index']);
+	</script>
+</body>
+</html>

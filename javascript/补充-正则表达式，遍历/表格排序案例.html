@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格排序案例</title>
+	<style type="text/css">
+		table{
+			margin: 50px auto;
+			border: 1px solid 
+		}
+		td,th{
+			border: 1px solid #ccc;
+			width: 100px;
+			height: 60px;
+			text-align: center;
+		}
+		.name{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<table class="ctn">
+			<!-- <thead>
+				<tr>
+					<td>姓名</td>
+					<td>年龄</td>
+					<td>学号</td>
+					<td>成绩</td>
+				</tr>
+			</thead> -->
+			<!-- <tbody>
+				<tr>
+					<td>张三</td>
+					<td>24</td>
+					<td>1</td>
+					<td>92</td>
+				</tr>
+			</tbody> -->
+		</table>
+	</div>
+	<script type="text/javascript">
+	var data=[
+		{name:'赵六',age:29,num:3,score:91},
+		{name:'李四',age:24,num:1,score:93},
+		{name:'王五',age:21,num:5,score:96},
+		{name:'钱八',age:26,num:4,score:97},
+		{name:'张三',age:22,num:2,score:99},
+	]
+		var ctn=document.querySelector('.ctn');
+		var thead=initTitle();
+		 var tbody=initTbody(data);
+		ctn.appendChild(thead);
+		 ctn.appendChild(tbody);
+
+		 var ths=document.querySelectorAll('th');
+		 for(var i=0,len=ths.length;i<len;i++){
+		 	ths[i].addEventListener('click',function(){
+		 		var sortname=this.getAttribute('data-index');
+		 		console.log(this.flag);
+		 		this.flag=this.flag==1?-1:1;
+		 		var _this=this;
+		 		data.sort(function(o1,o2){
+		 			var n1=o1[sortname];
+		 			var n2=o2[sortname];
+		 			if(n1>n2)
+		 				return _this.flag;
+		 			else if(n1<n2)
+		 				return - _this.flag;
+		 			else
+		 				return 0;
+		 		});	
+		  var newTbody=initTbody(data);
+		 var oldTbody=document.getElementsByTagName('tbody')[0];
+		 ctn.replaceChild(newTbody,oldTbody);
+		 	});
+		 }
+	
+	//生成标题
+function initTitle(){
+	var thead=document.createElement('thead');
+	var tag='<thead>'+
+				'<tr>'+
+					'<th data-index="name">姓名</th>'+
+					'<th data-index="age">年龄</th>'+
+					'<th data-index="num">学号</th>'+
+					'<th data-index="score">成绩</th>'+
+				'</tr>'+
+			'</thead>';
+		thead.innerHTML=tag;
+		return thead;
+}
+//生成表格
+function initTbody(data){
+	var tbody=document.createElement('tbody');
+	var tag="";
+	for(var i=0,len=data.length;i<len;i++){
+		tag+='<tr>'+
+					'<td>'+data[i].name+'</td>'+
+					'<td>'+data[i].age+'</td>'+
+					'<td>'+data[i].num+'</td>'+
+					'<td>'+data[i].score+'</td>'+
+				'</tr>';
+	}
+	tbody.innerHTML=tag;
+	return tbody;
+}
+	</script>
+
+</body>
+</html>

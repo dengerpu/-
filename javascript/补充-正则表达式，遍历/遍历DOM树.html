@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>遍历DOM树</title>
+</head>
+<body>
+	<div class="abc">第一个div</div>
+	<div class="div">第二个div
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</div>
+	<div class="cb"><span>第三个</span></div>
+	<script type="text/javascript">
+	function loadTree(parent,callback) {
+		for (var i = 0; i <parent.children.length; i++) {
+			var child=parent.children[i];
+			console.log(child);
+			if(callback){
+				callback(child);
+			}
+			//递归调用
+			loadTree(child);
+		}
+	}
+	loadTree(document.body,function(elements){
+		elements.addEventListener('click',function(){
+			this.style.color='red';
+		})
+
+	});
+	console.log('----------------------');
+	// 获取整个页面的全部元素
+	console.log(document.documentElement);
+	</script>
+</body>
+</html>

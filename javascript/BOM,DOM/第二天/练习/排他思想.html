@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>排他思想</title>
+</head>
+<body>
+	<button>按钮1</button>
+	<button>按钮2</button>
+	<button>按钮3</button>
+	<button>按钮4</button>
+	<button>按钮5</button>
+	<button>按钮6</button>
+	<script type="text/javascript">
+	var btn=document.getElementsByTagName('button');
+	for(var i=0;i<btn.length;i++){
+		btn[i].onclick=function(){
+			for(var i=0;i<btn.length;i++){
+				btn[i].style.backgroundColor="";
+			}
+			this.style.backgroundColor="pink";
+		}
+	}
+	</script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>美女相册</title>
+	<style type="text/css">
+		ul{
+			list-style-type: none;
+		}
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			margin-left: 100px;
+			margin-top: 30px;
+			background-color: #ccc;
+		}
+		 h3{
+            color: #333;
+            background-color: transparent;
+        }  
+        a {
+            color: #c60;
+            background-color: transparent;
+            font-weight: bold;
+            text-decoration: none;
+        }
+		ul{
+			height: 80px;
+		}
+		ul li{
+			float: left;
+			padding: 10px;
+		}
+		ul li:first-child{
+			margin-left: -10px;
+		}
+		ul li img{
+			width: 100px;
+		}
+		div{
+			margin-top:10px;
+			width: 400px;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<h3>美女画廊</h3>
+	<a href="#">注册</a>
+	<ul>
+		<li><a href="images/1.jpg" title="美女A"><img src="images/1-small.jpg" alt="美女A"></a></li>
+		<li><a href="images/2.jpg" title="美女B"><img src="images/2-small.jpg" alt="美女B"></a></li>
+		<li><a href="images/3.jpg" title="美女C"><img src="images/3-small.jpg" alt="美女C"></a></li>
+		<li><a href="images/4.jpg" title="美女D"><img src="images/4-small.jpg" alt="美女D"></a></li>
+	</ul>
+	<div><img  class="img" src="images/placeholder.png" width="400px"></div>
+	<p>选择一个图片</p>
+	<script type="text/javascript">
+	var ul=document.querySelector('ul');
+	var a=ul.querySelectorAll('a');
+	var img=document.querySelector('.img');
+	var p=document.querySelector('p');
+	for(var i=0;i<a.length;i++){
+		a[i].addEventListener('click',function(e){
+			e.preventDefault();/*阻止链接跳转*/
+			img.src=this.href;
+			p.innerHTML=this.title;
+		})
+	
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>H5新增的方法获取元素</title>
+</head>
+<body>
+	<p class="pp">这是一个p标签</p>
+	<div id="name">这是一个div标签</div>
+	<span class="pp">这是一个span标签</span>
+  	<script>
+  	var pj=document.getElementsByClassName('pp');//根据类名返回元素对象集合
+  	console.log(pj);
+  	console.dir(pj);
+  	//根据指定选择器返回第一个元素对象
+  	var se=document.querySelector('#name');
+  	console.log(se);
+  	//根据指定选择器返回蒜素集合
+  	var see=document.querySelectorAll('.pp');
+  	console.log(see);
+
+  	</script>
+</body>
+</html>

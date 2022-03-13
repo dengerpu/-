@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>触屏事件对象</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<script type="text/javascript">
+	//touches  正在触摸屏幕的所有手指的一个列表
+	//targetTouches 正在触摸房钱DOM元素上的手指的一个列表
+	//changedTouches 手指状态发生了改变的列表，从无到有，从有到无
+	var div=document.querySelector('div');
+	div.addEventListener('touchstart',function(e){
+		console.log(e.touches);
+		console.log(e.targetTouches);
+		console.log(e.changedTouches);
+	})
+	</script>
+</body>
+</html>

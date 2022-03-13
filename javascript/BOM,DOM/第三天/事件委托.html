@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委托</title>
+</head>
+<body>
+	  <ul>
+        <li>知否知否，应该有弹框在手</li>
+        <li>知否知否，应该有弹框在手</li>
+        <li>知否知否，应该有弹框在手</li>
+        <li>知否知否，应该有弹框在手</li>
+        <li>知否知否，应该有弹框在手</li>
+  </ul>
+	<script type="text/javascript">
+	var ul=document.querySelector('ul');
+	ul.addEventListener('click',function(e){
+		this.style.backgroundColor="";
+		var li=document.querySelectorAll('li');
+		for(var i=0;i<li.length;i++){
+			li[i].style.backgroundColor="";
+		}
+		e.target.style.backgroundColor="pink";
+	})
+	</script>
+</body>
+</html>

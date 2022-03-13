@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>构造函数创建对象练习</title>
+</head>
+<body>
+	<script type='text/javascript'>
+		function hero(name,type,age,attack){
+			this.name=name;
+			this.type=type;
+			this.age=age;
+			this.attack=attack;
+		}
+		var lianpo=new hero('廉颇','力量型',500,'近战');
+		var houyi=new hero('后裔','射手型',100,'远程');
+		console.log(lianpo);
+		console.log(houyi);
+		for(var k in houyi){
+			console.log(k);
+			console.log(houyi[k]);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>删除事件</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//传统方式删除事件
+		eventTarget.onclick=null;
+		//注册方式删除事件
+		eventTarget.removeEventListener(type,listener[,useCapture]);
+		//或者
+		eventTarget.detachEvent(eventNameWithon,callback);
+	</script>
+</body>
+</html>

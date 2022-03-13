@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>发送短信案例</title>
+</head>
+<body>
+	<div>
+		<input type="text"><button>发送</button>
+	</div>
+	<script type="text/javascript">
+		var btn=document.querySelector('button');
+		var s=5;
+		btn.addEventListener('click',function(){
+			this.disabled=true;
+			var time=setInterval(function(){
+			if(s==0){
+				clearInterval(time);
+				btn.disabled=false;
+				s=5;
+				btn.innerHTML="发送";
+			}else{
+				
+			btn.innerHTML="还有"+s+"秒";
+			s--;
+			}
+		},1000)
+		})
+	</script>
+</body>
+</html>

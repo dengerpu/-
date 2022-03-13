@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业练习</title>
+</head>
+<body>
+	<script>
+	var str='abaasdffggghhjjkkgfddsssss3444343';
+	console.log('字符串的长度为：'+str.length);
+	console.log('索引为0,6,9的字符为'+str.charAt(0)+'-'+str.charAt(6));
+	console.log("查找是否存在i字符",str.indexOf('i'));
+	console.log('替换指定字符',str.replace('g','22'));
+	console.log('截取指定位置的字符',str.substring(1,5));
+	console.log(str.slice(1,5));
+	console.log(str.substr(1,5));
+	//找出以上字符出现次数最多的字符和出现的次数
+	var o={};
+	for(var i=0;i<str.length;i++){
+		var chars=str.charAt(i);
+		if(o[chars])
+			o[chars]++;
+		else
+			o[chars]=1;
+	}
+	console.log(o);
+	var max=0;
+	var ch='';
+	for(var k in o){
+		if(o[k]>max){
+			max=o[k];
+			ch=k;
+		}
+	}
+	console.log(ch+':'+max);
+	</script>
+</body>
+</html>

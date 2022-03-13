@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5秒后自动跳转页面</title>
+</head>
+<body>
+	<button>百度</button>
+	<div>还有5秒页面自动跳转</div>
+	<script type="text/javascript">
+	var btn=document.querySelector('button');
+	var div=document.querySelector('div');
+	btn.addEventListener('click',function(){
+		location.href="http://www.baidu.com";
+	})
+	var s=5;
+	var time=setInterval(function(){
+		if(s==0){
+			location.assign("http://www.baidu.com");
+			s=5;
+			clearInterval(time);
+		}else{
+			s--;
+			div.innerHTML="还有"+s+"秒页面自动跳转";
+		}
+	},1000)
+	</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新浪下拉菜单</title>
+	<style>
+		*{margin:0; padding: 0;}
+		div{
+			width: 410px;
+			margin:200px  200px auto;
+		}
+		.nav{
+			display: flex;
+		}
+		a{
+			text-decoration: none;
+			font-size: 14px;
+		}
+		.nav li{
+			border:0px solid red;
+			width: 100px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+			list-style-type: none;
+		}
+		.nav>li>a:hover{
+			background-color: #333;
+		}
+		.nav ul{
+			display: none;
+			background-color: pink;
+			border-left: 1px solid #FECC5B;
+            border-right: 1px solid #FECC5B;
+
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<ul class="nav">
+			<li><a href="#">微博1</a>
+			<ul>
+			<li><a href="">私信1</a></li>
+			<li><a href="">评论1</a></li>
+			<li><a href="">@我1</a></li>
+			</ul>
+			</li>
+			<li><a href="#">微博2</a>
+			<ul>
+			<li><a href="">私信2</a></li>
+			<li><a href="">评论2</a></li>
+			<li><a href="">@我2</a></li>
+			</ul>
+			</li>
+			<li><a href="#">微博3</a>
+			<ul>
+			<li><a href="">私信3</a></li>
+			<li><a href="">评论3</a></li>
+			<li><a href="">@我3</a></li>
+			</ul>
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+	 var ul1=document.querySelector('.nav');
+	 var uls=ul1.children;
+	 for(var i=0;i<uls.length;i++){
+	 	uls[i].onmouseover=function(){
+	 		this.children[1].style.display="block";
+	 	}
+	 	uls[i].onmouseout=function(){
+	 		this.children[1].style.display="none";
+	 	}
+	 }
+	</script>
+</body>
+</html>

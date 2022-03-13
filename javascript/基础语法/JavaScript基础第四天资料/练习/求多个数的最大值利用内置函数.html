@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内置函数</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var max=function(){
+		var max=arguments[0];
+		for(var i=1;i<arguments.length;i++)
+			if(max<arguments[i])
+				max=arguments[i];
+		return max;
+	}
+	console.log(max(1,2,3,4,5,6));
+	console.log(max(2,3,5,6,4,-8));
+	</script>
+</body>
+</html>

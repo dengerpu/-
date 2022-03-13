@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简单表单验证练习</title>
+</head>
+<body>
+<fieldset>
+<legend>用户登录</legend>
+	<form action="">
+	QQ：<input type="text" id="txtQQ"><span></span><br>
+	邮箱：<input type="text" id="txtEmail"><span></span><br>
+	手机：<input type="text" id="txtPhone"><span></span><br>
+	生日：<input type="text" id="txtDay"><span></span><br>
+	姓名：<input type="text" id="txtName"><span></span><br></form></fieldset>
+	<script type="text/javascript">
+	addCheck('txtQQ',/[1-9]\d{4,}/,'输入有误');
+	addCheck('txtEmail',/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,'输入有误');
+	addCheck('txtPhone',/^(13\d|14[5|7]|15\d|18[0|1|2|3|5|6|7|8|9])\d{8}$/,'输入有误');
+	addCheck('txtDay',/\d{4}-\d{1,2}-\d{1,2}/,'输入有误');
+	addCheck('txtName',/^[\u4e00-\u9f5a]{1,5}$/,'输入有误');
+		function addCheck(elementId,reg,tip){
+			var element=document.getElementById(elementId);
+			element.addEventListener('keyup',function(e){//blur  change都可以
+				var span=this.nextElementSibling;
+				if(!reg.test(this.value)){
+					span.innerHTML=tip;
+					span.style.color='red';
+				}else{
+					span.innerHTML="输入合法";
+					span.style.color='green';
+				}
+			})
+		}
+	</script>
+</body>
+</html>

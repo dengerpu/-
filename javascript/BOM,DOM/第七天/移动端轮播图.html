@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动轮播图</title>
+	<style type="text/css">
+	*{margin:0px; padding: 0px;}
+	.focus{
+		position:relative;
+		border: 1px solid red;
+		
+		width: 750px;
+		height: 150px;
+		overflow: hidden;
+		}
+	.focus ul{
+		position: absolute;
+		left: -750px;
+		width: 500%;
+	}
+	.focus ul li{
+		float: left;
+	}
+	.focus ol{
+		position: absolute;
+		bottom: 5px;
+		right: 5px;
+	}
+	.focus ol li{
+		display: inline-block;
+		width: 5px;
+		height: 5px;
+		background-color: #fff;
+		list-style: none;
+		border-radius: 2px;
+		transition: all .3s;
+	}
+	.focus ol li.current{
+		width: 15px;
+	}
+	</style>
+</head>
+<body>
+	<div class="focus">
+		<ul type="none">
+			<li><img src="images/focus3.jpg"></li>
+			<li><img src="images/focus1.jpg"></li>
+			<li><img src="images/focus2.jpg"></li>
+			<li><img src="images/focus3.jpg"></li>
+			<li><img src="images/focus1.jpg"></li>
+		</ul>
+		<ol>
+			<li class="current"></li>
+			<li></li>
+			<li></li>
+		</ol>
+	</div>
+	<script type="text/javascript">
+		var focus=document.querySelector('.focus');
+		var ul=focus.children[0];
+
+		var w=focus.offsetWidth;
+		var ol=focus.children[1];
+		var index=0;
+		var timer=setInterval(function(){
+			index++;
+			var translatex=-index*w;
+			ul.style.transition='all .3s';
+			ul.style.transform='translateX('+translatex+'px)'
+		},1000)
+			//等过渡完成之后，再去判断，监听过度完成的事件
+		ul.addEventListener('transitionend',function(){
+				if(index>=3){
+					index=0;
+					ul.style.transition='none';
+					var translatex=-index*w;
+					ul.style.transform='translateX('+translatex+'px)';
+				}else if(index<0){
+					index=2;
+					ul.style.transition='none';
+					var translatex=-index*w;
+					ul.style.transform='translateX('+translatex+'px)'
+				}
+				ol.querySelector('.current').classList.remove('current');
+				ol.children[index].classList.add('current');
+		})
+	//手指滑动轮播图
+	var startx=0;
+	var movex=0;
+	var flag=false;
+	ul.addEventListener('touchstart',function(e){
+		startx=e.targetTouches[0].pageX;
+		clearInterval(timer);
+	});
+	ul.addEventListener('touchmove',function(e){
+		movex=e.targetTouches[0].pageX-startx;
+		var translatex=-index*w+movex;
+		ul.style.transition='none';
+		ul.style.transform='translateX('+translatex+'px)';
+		flag=true;  //如果用户手指移动过我们再去判断否则不做判断效果
+		e.preventDefault();  //阻止滚动屏幕的行为
+	})
+	ul.addEventListener('touchend',function(e){
+		if(flag){
+			if(Math.abs(movex)>50){//大于50就切换
+				if(movex>0){
+					index--;
+				}else{index++;}
+				var translatex=-index*w;
+				ul.style.transition='all .3s';
+				ul.style.transform='translateX('+translatex+'px)';
+			}else{//小于50就不切换
+				var translatex=-index*w;
+				ul.style.transition='all .3s';
+				ul.style.transform='translateX('+translatex+'px)';
+			}
+		}
+		clearInterval(timer);//手指离开的时候就重新开启定时器
+		timer=setInterval(function(){
+			index++;
+			var translatex=-index*w;
+			ul.style.transition='all .3s';
+			ul.style.transform='translateX('+translatex+'px)'
+		},1000)
+	})
+	</script>
+</body>
+</html>

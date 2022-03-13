@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>检测是否是数组</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//两种方法可以检测是否维数组
+		var a=[];
+		var b={};
+		console.log(a instanceof Array);
+		console.log(b instanceof Array);
+		console.log(Array.isArray(a));//h5中提供的方法
+		console.log(Array.isArray(b));
+	</script>
+</body>
+</html>

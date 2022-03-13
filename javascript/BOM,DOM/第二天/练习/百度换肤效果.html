@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度换肤效果</title>
+	<style type="text/css">
+		div{
+			margin:200px auto;
+		}
+		body{
+
+			background: url("images/1.jpg") no-repeat;
+		}
+		img{
+			width: 100px;
+			height: 100px;
+		}
+		.baidu{
+			width: 410px;
+			height: 110px;
+			display: flex;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<ul type="none" class="baidu">
+			<li><img src="images/1.jpg"></li>
+			<li><img src="images/2.jpg"></li>
+			<li><img src="images/3.jpg"></li>
+			<li><img src="images/4.jpg"></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+	var lis=document.querySelector('.baidu').getElementsByTagName('img');
+	for(var i=0;i<lis.length;i++){
+		//console.log(lis[i].src);
+		lis[i].onclick=function(){
+			///console.log(this.src);
+			document.body.style.backgroundImage='url('+ this.src +')';
+		}
+	}
+	</script>
+</body>
+</html>

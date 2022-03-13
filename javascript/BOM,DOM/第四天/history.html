@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>history</title>
+</head>
+<body>
+	<a href="http://www.baidu.com" target="target_blank">百度</a>
+	<button>前进</button>
+	<button>后退</button>
+	<button>go</button>
+	<script type="text/javascript">
+	var bt=document.querySelectorAll("buuton");
+	bt[0].addEventListener('click',function(){
+		history.forword();
+	})
+		bt[1].addEventListener('click',function(){
+		history.back();
+	})
+			bt[2].addEventListener('click',function(){
+		history.go(1);
+	})
+	</script>
+</body>
+</html>

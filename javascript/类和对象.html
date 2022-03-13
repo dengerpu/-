@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>类和对象</title>
+</head>
+<body>
+	<script type="text/javascript">
+			// 创建类
+			class Star{
+				constructor(uname,age){
+					this.name=uname;
+					this.age=age;
+				}
+				say(){
+					console.log("调用父类的方法");
+				}
+				jia(){
+					console.log(this.x+this.y);
+				}
+			}
+			var ldh=new Star('刘德华',12);
+			class Son extends Star{
+				constructor(x,y){
+					super();
+					this.x=x;
+					this.y=y;
+				}
+				jian(){
+					console.log(this.x-this.y);
+				}
+			}
+			var son=new Son(1,2);
+			son.jia();
+			son.jian();
+	</script>
+</body>
+</html>

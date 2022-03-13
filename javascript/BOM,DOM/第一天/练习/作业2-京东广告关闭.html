@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东广告关闭</title>
+	<style type="text/css">
+		.box{
+			width: 100%;
+			height: 800px;
+			border: 1px solid red;
+			position: relative;
+		}
+		img{
+			width: 100%;
+			height:800px;
+		}
+		#close{
+			display: inline-block;
+			border: 1px solid #999;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="images/广告.jpg">
+		<div id="close">×</div>
+	</div>
+	<script type="text/javascript">
+		var i=document.getElementById('close');
+		var box=document.getElementsByTagName('div');
+		i.onclick=function(){
+			box[0].style.display="none";
+		}
+	</script>
+</body>
+</html>

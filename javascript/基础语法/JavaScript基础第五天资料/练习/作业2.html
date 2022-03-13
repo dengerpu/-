@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>利用字面量创建对象</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var button={
+		width:100,
+		height:200,
+		color:'蓝色',
+		onclick:function(){
+			alert('点击行为');
+		}
+	};
+	for(var k in button){
+		console.log(k);  //属性名
+		console.log(button[k]);  //属性值
+	}
+	</script>
+</body>
+</html>

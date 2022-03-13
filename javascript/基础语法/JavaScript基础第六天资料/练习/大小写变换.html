@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>大小写变换</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var str='abcdEFGH';
+	var newstr='';
+	for(var i=0;i<str.length;i++){
+		if(str[i]>='a'&&str[i]<='z'){
+			newstr+=str[i].toUpperCase();
+		}
+		else if(str[i]>='A'&&str[i]<='Z'){
+			newstr+=str[i].toLowerCase();
+		}
+	}
+	console.log(newstr);
+	</script>
+</body>
+</html>

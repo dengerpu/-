@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阻止事件默认行为</title>
+</head>
+<body>
+	<a href="http://www.baidu.com" target="target_blank">百度</a>
+	<script type="text/javascript">
+	 var a=document.querySelector('a');
+	// a.addEventListener('click',function(e){
+	// 	e.preventDefault(); 
+	// })
+	//传统注册方式
+	a.onclick=function(e){
+		//e.returnValue;  IE6-8的属性
+		return false;
+	}
+	</script>
+</body>
+</html>

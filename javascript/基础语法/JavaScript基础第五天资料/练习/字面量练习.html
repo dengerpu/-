@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字面量练习</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var dog={
+			name:'可可',
+			type:'阿拉斯加犬',
+			age:5,
+			color:'棕红色',
+			skill1:function(){
+				alert('汪汪汪');alert('showFilm');
+			}
+		};
+		alert('我叫'+dog.name+',我是'+dog.type+',我今年'+dog['age']+'岁了'+'我的颜色是'+dog['color']+'下面表演我的技能');
+		dog.skill1();
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// var fn=()=>{
+	// 	alert(111);
+	// }//如果大括号只有一行，且执行结果是返回值，括号可以省略，
+	// fn();
+	
+	// var fn=()=>alert(111);
+	// fn();
+	
+	// 如果形参只有一个可以省略小括号
+	// var fn=v=>console.log(v);
+	// fn(5);
+	
+	// 不绑定this,执行函数定义位置的上下文de this
+	//对象不产生作用域
+	var obj={
+		age:20,
+		say:()=>{
+			console.log(this.age);
+		}
+	}
+	obj.say();
+
+	</script>
+</body>
+</html>

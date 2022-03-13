@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>仿淘宝固定侧边栏</title>
+	<style type="text/css">
+		.bar{
+			position: absolute;
+			/*left: 50%;*/
+			top: 300px;
+		/*	margin-left: 600px;*/
+		margin-left: 1546px;
+			width: 45px;
+			height: 130px;
+			background-color: pink;
+		}
+		.header{
+			width:1200px;
+			margin: 10px auto;
+			height: 150px;
+			background-color: purple;
+		}
+		.banner{
+			width:1200px;
+			margin: 10px auto;
+			height: 250px;
+			background-color: skyblue;
+		}
+		.main{
+			width:1200px;
+			margin: 10px auto;
+			height: 1000px;
+			background-color: yellowgreen;
+		}
+		span{
+			display: none;
+			position: absolute;
+			bottom: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="bar">
+		<span class="goback">返回顶部</span>
+	</div>
+	<div class="header">头部区域</div>
+	<div class="banner">banner区域</div>
+	<div class="main">主体部分</div>
+	<script type="text/javascript">
+	var bar=document.querySelector('.bar');
+	var banner=document.querySelector('.banner');
+	var bannertop=banner.offsetTop;//转化为被卷去头部的大小
+	var bartop=bar.offsetTop - bannertop;
+
+	var main=document.querySelector('.main');
+	var goback=document.querySelector('.goback');
+	var maintop=main.offsetTop;
+
+	document.addEventListener('scroll',function(){
+		//window.pageYOffset页面被卷去的头部
+		if(window.pageYOffset>=bannertop){
+			bar.style.position="fixed";
+			bar.style.top=bannertop+'px';
+		}else{
+			bar.style.position="absolute";
+			bar.style.top='300px';
+		}
+		if(window.pageYOffset>=maintop){
+			goback.style.display="block";
+		}else{
+			goback.style.display="none";
+		}
+	})
+	</script>
+</body>
+</html>

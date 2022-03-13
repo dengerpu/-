@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>兄弟节点</title>
+</head>
+<body>
+	<div class="nav">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</div>
+	<div>我是第二个div</div>
+	<script type="text/javascript">
+		//返回当前元素的下一个兄弟节点，如果没有返回为空,包含多有节点
+		var div=document.querySelector('.nav');
+		var ul=document.querySelector('ul');
+		console.log(div.nextSibling);
+		console.log(ul.previousSibling);
+		console.log(ul.nextSibling);
+		//同样可以可用nextElementSibling.previousElementSibling,来找他们下一个兄弟节点和和是上一个兄弟节点,,IE9以上才支持
+		console.log(div.nextElementSibling);
+		console.log(div.nextElementSibling.previousElementSibling);
+		//如何解决兼容问题，自己封装一个函数
+		function getNextElementSibling(element){
+			var el=element;
+			while(el=el.nextSibling){
+				if(el.nodeType===1)
+					return el;
+			}
+			return null;
+		}
+		console.log(getNextElementSibling(div));
+	</script>
+</body>
+</html>

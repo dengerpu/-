@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>剩余参数</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// const sum=(...args)=>{
+		// 	let total=0;
+		// 	args.forEach(item=>total+=item);
+		// 	return total;
+		// }
+		// console.log(sum(1,2));
+		// console.log(sum(1,2,3));
+		
+		// 或者arguments也可以获取位置个数的参数
+		
+		var sum=function(){
+			let num=0;
+			for(let i=0; i<arguments.length;i++){
+				num+=arguments[i];
+			}
+			return num;
+		}
+		console.log(sum(1,2,3));
+	</script>
+</body>
+</html>

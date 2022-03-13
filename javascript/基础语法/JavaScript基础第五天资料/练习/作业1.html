@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>构造函数创建对象</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function Computer(color,height,pinpai){
+		this.color=color;
+		this.height=height;
+		this.pinpai=pinpai;
+		this.fun=function(){
+			alert('看电影，听音乐，打游戏，敲键盘');
+
+		}
+	}
+	var a=new Computer('黑色',5,'惠普');
+	console.log(a);
+	</script>
+</body>
+</html>

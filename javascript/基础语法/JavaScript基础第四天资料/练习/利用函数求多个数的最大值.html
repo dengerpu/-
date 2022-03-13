@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>求多个数的最大值</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var max=function(){
+			var max1=arguments[0];
+			for(var i=1;i<arguments.length;i++)
+				if(arguments[i]>max1)
+					max1=arguments[i];
+			return max1;
+		};
+		console.log(max(1,2,3,4));
+		console.log(max(5,6,9,8,10));
+	</script>
+</body>
+</html>

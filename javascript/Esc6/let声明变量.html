@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>let声明变量</title>
+</head>
+<body>
+	<pre>
+	let声明的变量
+	1.具有块级作用域
+	2.不存在变量提升，也就是必须先声明，才能使用
+	3.暂时性死区
+	</pre>
+	<script type="text/javascript">
+		/*if(true){
+			let num=10;
+			var a=10;
+			console.log(num);
+			console.log(a);
+		}
+		console.log(a);
+		console.log(num);  //报错，因为let只在块级作用域中发挥作用*/
+
+		// console.log(a);  //undefined
+		// console.log(num); //报错
+		// var a=10;
+		// let num=10;
+	
+		// 暂时性死区问题
+		var num=10;
+		if(true){
+			console.log(num);  //会报错，显示变量没有定义，这是由于let造成的暂时性死区问题
+			let num=20;
+		}
+	</script>
+</body>
+</html>

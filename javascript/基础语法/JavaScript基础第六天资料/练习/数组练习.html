@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组练习</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var a=[1,2,3,4,5,6];
+	a.push(7,8);  	//末尾添加一个或多个元素，返回新的长度
+	console.log(a);
+	var b=[1,2,3,4,5,6];
+	b.pop();		//删除数组最后一个元素，返回删除的元素
+	console.log(b);
+	var c=[1,2,3,4,5,6];
+	c.unshift(0);	//向数组开头添加一个元素，修改原数组，返回的是新的长度
+	console.log(c);
+	var d=[1,2,3,4,5,6];
+	d.shift();		//删除数组第一个元素，修改数组。
+	var e=[1,2,3,4,5,6];
+	console.log(e.reverse());  //颠倒数组中元素的，会改变原来的数组
+	var f=[1,2,5,-1,7,6];
+	console.log(f.sort());  //对数组元素进行排序，会改变原来数组长度
+	var arr=[1,5,3,2,4,8,7];
+	arr.sort(function(a,b){
+		return b-a;  //降序   a-b是升序
+	});
+	console.log(arr);
+	</script>
+</body>
+</html>

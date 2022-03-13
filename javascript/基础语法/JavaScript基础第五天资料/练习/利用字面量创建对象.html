@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>利用字面量创建对象</title>
+</head>
+<body>
+	<script type='text/javascript'>
+	var zhangsan={
+		name: '张三',
+		age:18,
+		say:function(){
+			alert('大家好我是张三');
+		}
+	};
+	console.log(zhangsan);  //第一种形式，对象.属性名
+	alert(zhangsan.name);	//第二种形式 对象【‘属性名’】
+	alert(zhangsan['age']);
+	zhangsan.say();
+	</script>
+</body>
+</html>

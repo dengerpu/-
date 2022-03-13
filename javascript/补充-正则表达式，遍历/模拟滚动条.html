@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟滚动条</title>
+	<style type="text/css">
+		*{margin:0; padding: 0;}
+		.box{
+			width: 300px;
+			height: 500px;
+			border: 1px solid red;
+			margin: 100px;
+			position: relative;
+			overflow: hidden;
+			/*不让文字被选中*/
+			-webkit-user-select:none;
+			-moz-user-select:none;
+			-ms-user-select:none;
+			user-select:none;
+
+		}
+		.content{
+			padding: 5px 18px 5px 5px;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+		.scroll{
+			width: 18px;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			right: 0;
+			background-color: #ccc;
+		}
+		.bar{
+			height: 100px;
+			width: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: red;
+			border-radius:10px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="content">我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字</div>
+		<div class="scroll">
+			<div class="bar"></div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	var box=document.querySelector('.box');
+	var content=document.querySelector('.content');
+	var scroll=document.querySelector('.scroll');
+	var bar=document.querySelector('.bar');
+	//计算滚动条的高度
+	//滚动条的高度/scroll的高度=box高度/内容的高度
+	var barHeight=0;
+	if(content.scrollHeight>box.clientHeight){
+	 barHeight=box.clientHeight/content.scrollHeight*scroll.clientHeight;
+	}
+	bar.style.height=barHeight+'px';
+	
+	//拉动滚动条
+	bar.addEventListener('mousedown',function(e){
+		e=e||window.event;
+		//鼠标在滚动条中的位置
+		var y=e.pageY-bar.offsetTop-box.offsetTop;
+		function move(e){
+			var barY=e.pageY-y-box.offsetTop;
+			barY=barY<0?0:barY;
+			barY=barY>scroll.clientHeight-bar.clientHeight?scroll.clientHeight-bar.clientHeight:barY;
+			bar.style.top=barY+'px';
+			//改变内容高度
+			//内容滚动的距离/内容能够滚动的最大距离=滚动条滚动的距离/滚动条能够滚动的最大距离
+			var contentMax=content.scrollHeight-box.clientHeight;
+			var barMax=scroll.clientHeight-bar.clientHeight;
+			var contentY=barY/barMax*contentMax;
+			content.style.top=-contentY+'px';
+		}
+		document.addEventListener('mousemove',move);
+		document.addEventListener('mouseup',function(){
+			document.removeEventListener('mousemove',move);
+		})
+	})
+
+	</script>
+</body>
+</html>

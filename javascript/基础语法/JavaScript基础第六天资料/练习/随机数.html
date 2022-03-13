@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>随机数</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function random(min,max){
+		return Math.floor(Math.random()*(max-min+1)+min);  //包括这里按个数，Math.random产生数的范围我是【0,1）
+	}
+	console.log(random(1,10));
+	</script>
+</body>
+</html>

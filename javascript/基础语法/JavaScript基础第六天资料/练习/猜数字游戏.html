@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>猜数字游戏</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var num=prompt('请输入你要猜的数字');
+	function random(min,max){
+		return Math.floor(Math.random()*(max-min+1)+min);
+
+	}
+	var a=random(1,10);
+	while(true){
+		if(num<a){
+			alert('你输入的数字小了');
+			num=prompt('请输入你要猜的数字');
+		}else if(num>a){
+			alert('你输入的数字大了');
+			num=prompt('请输入你要猜的数字');
+		}
+		else
+			break;
+	}
+	alert('你猜对了，好棒呦');
+	</script>
+</body>
+</html>

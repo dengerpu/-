@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>返回顶部案例</title>
+	<style type="text/css">
+		.top{
+			width: 100%;
+			height: 500px;
+			background-color: pink;
+		}
+		.body{
+			width: 100%;
+			height: 1600px;
+			background-color: purple;
+		}
+		.goback{
+			display: none;
+			position: fixed;
+			bottom: 10px;
+			right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="top"></div>
+	<div class="body"></div>
+	<div class="goback"><img src="images/back.png"></div>
+	<script type="text/javascript">
+		var goback=document.querySelector('.goback');
+		var top1=document.querySelector('.top');
+		window.addEventListener('scroll',function(){
+			if(window.pageYOffset>=top1.offsetHeight){
+				goback.style.display="block";
+			}else{
+				goback.style.display='none';
+			}
+		})
+		goback.addEventListener('click',function(){
+			window.scroll(0,0);
+		})
+	</script>
+
+</body>
+</html>

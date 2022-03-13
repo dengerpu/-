@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.grandfather{
+		/*position: relative;*/
+	}
+		.father{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			position: relative;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			margin: 50px auto;
+			border:5px solid red;
+		}
+	</style>
+</head>
+<body>
+<div class="grandfather">
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</div>
+	<script type="text/javascript">
+	var son=document.querySelector('.son');
+	var father=document.querySelector('.father');
+	console.log(son.offsetParent);
+	console.log(son.offsetTop);
+	console.log(son.offsetLeft);
+
+	console.log(son.offsetWidth);
+	console.log(son.offsetHeight);
+	</script>
+</body>
+</html>

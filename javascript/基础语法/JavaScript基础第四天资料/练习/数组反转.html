@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组反转</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//要求: 将数组 ['red', 'green', 'blue', 'pink', 'purple'] 的内容反过来存放。
+// 输出： ['purple', 'pink', 'blue', 'green', 'red']
+	var a=[1,2,3,4,5];
+	var t;
+	for(var i=0;i<a.length/2;i++){
+		t=a[i];
+		a[i]=a[a.length-1-i];
+		a[a.length-1-i]=t;
+	}
+	console.log(a);
+	var b=[1,2,3,4,5];
+	console.log(b.reverse());
+	</script>
+</body>
+</html>

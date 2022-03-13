@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易计算器</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var select=prompt('欢迎使用简易计算器：'+'\n'+'1.加法运算'+'\n'+'2.减法运算'+'\n'+'3.乘法运算'+'\n'+'4.除法运算'+'\n'+'5.退出'+'\n'+'请输入你的选择');
+	var a=prompt('请输入第一个数');
+	var b=prompt('请输入第二个数');
+	var s;
+	switch(select){
+		case '1':s=parseInt(a)+parseInt(b);alert(a+'+'+b+'='+s);break;
+		case '2':s=parseInt(a)-parseInt(b);alert(a+'-'+b+'='+s);break;
+		case '3':s=parseInt(a)*parseInt(b);alert(a+'*'+b+'='+s);break;
+		case '4':s=parseInt(a)/parseInt(b);alert(a+'/'+b+'='+s);break;
+		case '5':break;
+	}
+	</script>
+</body>
+</html>

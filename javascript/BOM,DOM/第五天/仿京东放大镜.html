@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>仿京东放大镜</title>
+	<style>
+	.all{
+		display: flex;
+		margin-top: 100px;
+	}
+		.sp{
+			position: relative;
+			width:400px;
+			height:400px;
+			border: 1px solid #666;
+			background-color: #fff;
+	
+			margin-left: 50px;
+		}
+		.smallimg{
+			width: 400px;
+			height: 400px;
+		}
+		.big{
+			display: none;
+			position: absolute;
+			width: 500px;
+			height: 500px;
+			border: 1px solid #666;
+			background-color: #fff;
+			left: 405px;
+			top: 0px;
+			overflow: hidden;
+		}
+		.bigimg{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+		.mask{
+			display: none;
+			position:absolute;
+			top:0px;
+			left: 0px;
+			width:300px;
+			height: 300px;
+			background: #FEDE4F;
+            opacity: .5;  /*设置透明度*/
+            border: 1px solid #ccc;
+            cursor: move;
+		}
+		.right{
+			width: 1200px;
+			height: 400px;
+			border: 1px solid red;
+			background-color: pink;
+			margin-left: 10px;
+		}
+	</style>
+</head>
+<body>
+<div class="all">
+	<div class="sp"><img class="smallimg" src="images/b3.png">
+	<div class="big"><img class="bigimg" src="images/big.jpg"></div>
+	<div class="mask"></div>
+	</div>
+	<div class="right">右部区域</div>
+</div>
+	<script type="text/javascript">
+	var sp=document.querySelector('.sp');
+	var mask=document.querySelector('.mask');
+	var big=document.querySelector('.big');
+	sp.addEventListener('mouseover',function(){
+		mask.style.display="block";
+		big.style.display="block";
+
+	})
+	sp.addEventListener('mouseout',function(){
+		mask.style.display="none";
+		big.style.display="none";
+	})
+	sp.addEventListener('mousemove',function(e){
+		//先计算鼠标在大盒子内的坐标
+		var x=e.pageX - sp.offsetLeft;
+		var y=e.pageY - sp.offsetTop;
+		//console.log(x,y);
+		var maskx=x - mask.offsetWidth/2;
+		var masky=y - mask.offsetHeight/2;
+		// console.log(maskx,masky);这里目的是为了让鼠标在中间
+		var maskmax=sp.offsetWidth-mask.offsetWidth;//遮挡层移动的最大距离
+		if(maskx<=0)maskx=0;else if(maskx>maskmax)maskx=maskmax;
+		if(masky<=0)masky=0;else if(masky>maskmax)masky=maskmax;
+		mask.style.left=maskx+'px';
+		mask.style.top=masky+'px';
+		//大图的移动距离=遮挡层移动距离*大图最大移动距离/遮挡层最大移动距离
+		var bigimg=document.querySelector('.bigimg');
+		var bigmax=bigimg.offsetWidth - big.offsetWidth;
+		var bigx=maskx*bigmax/maskmax;
+		var bigy=masky*bigmax/maskmax;
+		bigimg.style.left=-bigx + "px";
+		bigimg.style.top=-bigy + 'px';
+	})
+	</script>
+</body>
+</html>

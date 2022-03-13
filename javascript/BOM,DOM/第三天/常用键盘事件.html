@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>常用键盘事件</title>
+</head>
+<body>
+	<script type="text/javascript">
+	document.addEventListener('keydown',function(){
+		console.log('down 键被按下了');
+	})
+		document.addEventListener('keypress',function(){
+		console.log('press 键被按下了');
+	})
+		document.addEventListener('keyup',function(){
+		console.log('up 键被弹起来了');
+	})
+	document.addEventListener('keyup',function(e){
+		console.log(e.key);
+		console.log(e.keyCode);
+	})
+
+	</script>
+</body>
+</html>

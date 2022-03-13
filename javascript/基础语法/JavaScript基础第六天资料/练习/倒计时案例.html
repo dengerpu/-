@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function cutdown(time){
+		var nowtime=+new Date();  //返回当前时间的总毫秒数
+		var inputtime=+new Date(time);//返回用户输入时间总毫秒数
+		var times=(inputtime-nowtime)/1000;   //获取总的秒数
+		var d=parseInt(times/60/60/24); //天数
+		d=d<10?'0'+d:d;
+		var h=parseInt(times/60/60%24); //小时
+		h=h<10?'0'+h:h;
+		var m=parseInt(times/60%60); //分
+		m=m<10?'0'+m:m;
+		var s=parseInt(times%60); //当前秒数
+		s=s<10?'0'+s:s;
+		return d+'天'+h+'时'+m+'分'+s+'秒';
+	}
+	console.log(cutdown('2020-1-4 12:00:00'));
+	</script>
+	
+</body>
+</html>

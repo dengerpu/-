@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>输出当前时间</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var now=new Date();
+	var date=function(){
+		var hour=now.getHours();
+		hour=hour<10?'0'+hour:hour;
+		var m=now.getMinutes();
+		m=m<10?'0'+m:m;
+		var s=now.getSeconds();
+		s=s<10?'0'+s:s;
+		console.log(hour+':'+m+':'+s);
+	}
+	date();
+	</script>
+</body>
+</html>

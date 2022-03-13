@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>const声明常量</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// 具有块级作用域，声明常量必须赋值，常量赋值后，值值不可以更改。
+	const num=10;
+	// num=20;
+	console.log(num);
+
+	const arr=[1,2,3];
+	// arr=[1,2];   //会报错
+	console.log(arr);
+	arr[0]=0;//这样修改是被允许的
+	</script>
+</body>
+</html>

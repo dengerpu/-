@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达式创建</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//test方式是用匹配
+	
+	//第一个参数 模式pattern 字符串类型
+	//第二个参数flag  i表示忽略大小写  g表示全局匹配
+		var regularExpression=new RegExp('^ab[0-9]+','g');
+		var str='ab123';
+		console.log(regularExpression.test(str));
+
+
+		//第二种方式
+		var reg=/^ab[0-9]+/g;
+		console.log(reg.test(str));
+
+	//exec提取一个内容，没有返回null
+	var str="张三：2500，李四：300，王五：30000";
+	var reg=/\d+/gi;
+	// var content=reg.exec(str);
+	// // console.log(content);
+	// // 	var content=reg.exec(str);
+	// // console.log(content);
+	do{
+		var content=reg.exec(str);
+		if(content!=null){
+			console.log(content);
+		}
+	}while(content);
+	</script>
+</body>
+</html>

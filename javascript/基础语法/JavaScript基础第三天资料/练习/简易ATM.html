@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易ATM</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var select=prompt('请输入你需要的操作'+'\n'+'1.存钱'+'\n'+'2.取钱'+'\n'+'3.显示余额'+'\n'+'4.退出');
+	var balance=100;
+	while(select)
+	{
+		if(select==1){
+			var a=prompt('请输入要存的钱数');
+			balance+=parseInt(a);
+		}
+		if(select==2){
+			var b=prompt('请输入要取的钱数');
+			if(balance<parseInt(b))
+				alert('你卡内余额不足');
+			balance-=b;
+		}
+		if(select==3){
+			alert('你的余额为：'+balance);
+		}
+		if(select==4)
+			break;
+		 select=prompt('请输入你需要的操作'+'\n'+'1.存钱'+'\n'+'2.取钱'+'\n'+'3.显示余额'+'\n'+'4.退出');
+	}
+	</script>
+</body>
+</html>

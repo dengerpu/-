@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>attachEvent事件监听方式</title>
+
+</head>
+<body>
+	<button>按钮</button>
+	<script>
+	var btn=document.querySelector('button');
+	//attachEvent(eventNameWithOn,callback)
+	//eventNameWithOn ,事件类型字符串，  onclick,onmouseover,这里需要加on
+	//callback ：事件处理函数，当目标输出法事案件时回调函数被调用
+	
+	btn.attachEvent('onclick',function(){
+		alert('ie9以前支持的版本');
+	});
+	</script>
+</body>
+</html>

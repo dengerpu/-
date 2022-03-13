@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>区别</title>
+	<style type="text/css">
+		.father{
+			width: 200px;
+			height: 200px;
+			border: 1px solid red;
+			background-color: purple;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+	<script type="text/javascript">
+	//mouseover鼠标经过自身盒子会触发，经过子盒子也会触发
+	//mouseenter只会经过自身出发
+	var father=document.querySelector('.father');
+	father.addEventListener('mouseover',function(){
+		console.log(11);
+	})
+	father.addEventListener('mouseenter',function(){
+		console.log(22);
+	})
+	</script>
+</body>
+</html>

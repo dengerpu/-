@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建对象的三种方式</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//利用字面量创建对象
+		var zhangsan={
+			name:"张三",
+			age：18，
+			say:function(){
+				alert('大家好，我是张三');
+			}
+		}
+		//构造函数创建对象
+		function Person(name,age,sex){
+			this.name=name;
+			this.age=age;
+			this.sex=sex;
+			this.say=function(){
+				alert('哈哈哈');
+			}
+		var zhangsan=new Person('大白',18,'男');
+		}
+		//利用new创建对象
+		var star=new Object();
+		star.name="名人";
+		star.age=18;
+		star.skill=function(){
+			alert('aaaa')
+		}
+	</script>
+</body>
+</html>
