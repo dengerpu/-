@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--<meta charset="UTF-8">-->
+    <title>创建文本过渡</title>
+<style type="text/css">
+    p{
+        width:100px;
+        height:100px;
+        background-color: antiquewhite;
+    }
+    p:hover{
+        width:200px;
+        height:200px;
+        background-color: aliceblue;
+        transition-delay: 100ms;/*鼠标经过延迟时间100ms*/
+        transition-duration: 500ms;/*动画变化时间*/
+        transition-property: background-color;/*颜色慢慢变化，也可以设置为高度或者宽度*/
+	transition-timing-function:linear;
+    }
+</style>
+</head>
+<body>
+<p></p>
+</body>
+</html>

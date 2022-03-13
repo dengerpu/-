@@ -1,0 +1,70 @@
+<!MOCTYCE html>
+<html>
+<head>
+    <title>
+    制作表格
+     </title>
+</head>
+<body>
+<table border="1px" alien="center">    <!-制作表格必须用到的三个table代表表格   border代表表格宽度  tr代表行  td代表单元格->
+ <thead>                               <!-thead表示表头，没多大作用。th表示加粗   tbody表示身体  tfoot表示表脚 这几个可要可不要->
+   <tr>
+	<th>用户名</th>
+	<th>账号</th>
+	<th>密码</th>
+    </tr>
+ <t/head>
+ <tbody>
+    <tr>
+	<td>admin</td>
+	<td>1111</td>
+	<td>2222</td>
+    </tr>
+    <tr>
+	<td>abc</td>
+	<td>3333</td>
+	<td>4444</td>
+    </tr>
+    <tr>
+ 	<td>abd</td>
+	<td>5555</td>
+	<td>6666</td>
+    </tr>
+ </tbody>
+ <tfoot>
+   <tr>
+	<td>用户名</td>
+	<td>账号</td>
+	<td>密码</td>
+    </tr>
+ </tfoot>
+</table>
+
+<br>    						<!-br表示换行->
+<br>
+<br>
+<br>
+<table border="1px">
+	<tr>
+		<th rolspan="2">aaa</th>                <!-roalspan代表合并列单元格->   
+		<th>aaa</th>
+		<th>aaa</th>
+		<th>aaa</th>
+	</tr>
+	<tr>
+		<td colspan="2">aaa</td>                <!-colspan代表行合并单元格->
+		<td>aaa</td>
+	</tr>
+	<tr>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td>aaa</td>
+		<td>aaa</td>
+	</tr>
+</table>
+
+
+
+
+</body>
+</html>

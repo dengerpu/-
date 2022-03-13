@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--<meta charset="UTF-8">-->
+    <title>创建动画</title>
+
+<style type="text/css">
+    p{
+        width:100px;
+        height:100px;
+        background-color: antiquewhite;
+    }
+    p:hover{
+      animation-duration: 500ms;/*变化时间*/
+        animation-delay: 200ms;/*延迟时间*/
+        animation-name: dep;
+        animation-iteration-count: infinite;/*设置重复次数 infinite代表无限循环 这里也可以设置成数字*/
+        animation-direction: alternate;/*正反重复*/
+    }
+    @keyframes dep {
+        from{
+            width:100px;
+            height:100px;
+            background-color: beige;
+        }
+        50%{
+            width:100px;
+            height:100px;
+            background-color: black;
+        }
+        75%{
+            width:100px;
+            height:100px;
+           background-color: blue;
+        }
+        to{
+            width:100px;
+            height:100px;
+            background-color: blueviolet;
+        }/*中间的from  50%  75%  都可以省去*/
+    }
+
+    </style>
+    </head>
+<body>
+<p></p>
+</body>
+</html>

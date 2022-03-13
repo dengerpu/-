@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<html>
+<head>
+    <!--<meta charset="UTF-8">-->
+    <title>css使用变换</title>
+    <style type="text/css">
+        .class1{
+            width:100px;
+            height:100px;
+            background-color: blue;
+        }
+        .class1:hover{
+            width:100px;
+            height:100px;
+            background-color: #7543fa;
+            transform: rotate(-30deg); /*鼠标经过旋转角度 正数代表顺时针 负数代表逆时针 deg代表度数*/
+        }
+        .class2{
+            width:100px;
+            height:100px;
+            background-color: blue;
+        }
+        .class2:hover{
+            width:100px;
+            height:100px;
+            background-color: #7543fa;
+            transform: scale(1.5);   /*放大倍数倍数 只改变长用scalex() 改变宽用scaley()*/
+        }
+        .class3{
+            width:100px;
+            height:100px;
+            background-color: blue;
+        }
+        .class3:hover{
+            width:100px;
+            height:100px;
+            background-color: #7543fa;
+            transform-origin: top left;/*表示绕着top right上部右边的点旋转  也可以设置成 40px 50px 表示距离长40px 距离宽50px*/
+        }
+        </style>
+</head>
+<body>
+<p class="class1"></p>
+<p class="class2"></p>
+<p class="class3"></p>
+</body>
+</html>
