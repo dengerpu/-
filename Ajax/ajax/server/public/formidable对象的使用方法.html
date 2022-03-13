@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 创建普通的html表单 -->
+	<form id="form">
+		<input type="text" name="username">
+		<input type="password" name="password">
+		<input type="button" id="btn" value="提交">
+	</form>
+	<!-- formData使用方法 -->
+	<script type="text/javascript">
+		var btn = document.getElementById('btn');
+		var form = document.getElementById('form');
+		btn.onclick = function(){
+			// 将普通表单转化为表单对象，只能用于post请求
+			var formData = new FormData(form);
+			//formData.get('key')可以得到属性的值
+			console.log(formData.get('username'));
+			//formData.set('key','value')可以设置属性或者添加属性的值
+			//formData.set('username','123456');
+			//formData.set('set','123456');
+			//删除属性的值
+			//formData.delete('username');
+			//向表单中追加属性的值,如果属性存在，会保留原来的值，使该属性有两个值
+			formData.append('abc','123456');
+
+			//创建ajax对象
+			var xhr = new XMLHttpRequest();
+			//配置xml对象
+			xhr.open('post','http://localhost:80/formDate');
+			xhr.send(formData);
+			xhr.onload = function(){
+				if(xhr.status == 200){
+					console.log(xhr.responseText);
+				}
+			}
+		}
+	</script>
+<!-- 	<script>
+	var btn = document.getElementById('btn');
+	var form = document.getElementById('form');
+	btn.onclick = function(){
+		//将普通表单转化为表单对象，只能用于post请求
+		var formData = new FormData(form);
+		// 创建ajax对象
+		var xhr = new XMLHttpRequest();
+		// 配置ajax对象
+		xhr.open('post','http://localhost:80/formDate');
+		//发送请求
+		xhr.send(formData);
+		xhr.onload = function(){
+			if(xhr.status == 200){
+				console.log(xhr.responseText);
+			}
+		}
+	}
+	</script> -->
+</body>
+</html>

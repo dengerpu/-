@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单验证</title>
+	<style type="text/css">
+		*{margin: 0; padding: 0;}
+		body{
+			background: #ccc;
+		}
+		.login{
+			width: 500px;
+			height: 380px;
+			border:1px solid #ccc;
+			margin:100px auto;
+			padding-top:50px;
+			background: #efefef;
+			border:1px solid #999;
+		}
+		ul{
+			list-style: none;
+		}
+		.login li{
+			margin:15px 0;
+		}
+		.login li label{
+			display: inline-block;
+			width: 80px;
+			height: 20px;
+			text-align: right;
+		}
+		.login li input{
+			margin-left: 20px;
+		}
+		.login li i{
+			display: inline-block;
+			vertical-align: middle;
+			width: 16px;
+			height: 16px;
+		}
+		.login li.evaluation{
+			width: 220px;
+			height: 20px;
+			margin-left: 60px;
+			background: url(images/strong.jpg) no-repeat;
+		}
+		.success{
+			background: url(images/success.png) no-repeat;
+			color: #40b83f;
+			font-size: 12px;
+			padding-left: 20px;
+		}
+		.error{
+			background: url(images/error.png) no-repeat;
+			color:#df3033;
+			padding-left: 20px;
+			font-size: 12px;
+		}
+    .login ul li.str1{
+        background-position: 0 -20px;
+    }
+    .login ul li.str2{
+        background-position: 0 -40px;
+    }
+    .login ul li.str3{
+        background-position: 0 -60px;
+    }
+    .login ul li.str4{
+        background-position: 0 -80px;
+    }
+
+	</style>
+	<script type="text/javascript" src="jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//QQ添加事件
+			$("#qq input").change(function(){
+				// var reg=/^[1-9][0-9]{4,9}$/g;
+				var reg=new RegExp('^[1-9][0-9]{4,9}$','g');
+				if(reg.test($(this).val())){
+					$("#qq span").removeClass().addClass("success").text("恭喜你输入正确");		
+				}else{
+					$("#qq span").removeClass().addClass("error").text("请输入正确的QQ密码");	
+				}
+			})
+			//手机号码添加事件
+			$("#phone input").change(function(){
+				var reg=/^(13[0-9]|14[5|7]|15[0-9]|18[0|1|2|3|5|6|7|8|9])[0-9]{8}$/g;
+				if(reg.test($(this).val())){
+					$("#phone span").removeClass().addClass("success").text("恭喜你输入正确");
+				}else{
+					$("#phone span").removeClass().addClass("error").text("输入有误");
+				}
+			})
+			// 邮箱添加事件
+			var email=document.getElementById("email");
+			var input=email.querySelector('input');
+			var span=email.getElementsByTagName("span")[0];
+			var reg=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/gi;
+			input.addEventListener('change',function(){
+					if(reg.test(input.value)){
+						span.className="success";
+						span.innerHTML="恭喜你输入正确";
+					}else{
+						span.className="error";
+						span.innerHTML="输入有误";
+					}
+			})
+
+			//账号添加事件
+			var account=document.getElementById("account");
+			var input1=account.querySelector('input');
+			var span1=account.getElementsByTagName("span")[0];
+			input1.addEventListener('change',function(){
+				var reg1=new RegExp('[0-9]{6}','g');  //创建正则对象不能用\d
+				if(reg1.test(input1.value)){
+					span1.className="success";
+					span1.innerHTML="恭喜你输入正确";
+					}else{
+						span1.className="error";
+						span1.innerHTML="输入有误";
+					}
+			})
+			//密码验证
+			$("#password input").change(function(){
+				if(/^[a-zA-Z0-9_\-$]{6,18}$/.test($(this).val())){
+					$("#password span").removeClass().addClass("success").text("恭喜你输入正确");
+					$(".evaluation").removeClass().addClass("evaluation str1");
+				 if(/^([a-z].*[A-Z])|([A-Z].*[a-z])$/.test($(this).val()))
+				 	$(".evaluation").removeClass().addClass("evaluation str2");
+				 if(/^([a-z].*[0-9])|([A-Z].*[0-9])|[0-9].*[a-zA-Z]$/.test($(this).val()))
+				 	$(".evaluation").removeClass().addClass("evaluation str3");
+				 if(/^[A-Za-z0-9]+[_$][A-Za-z0-9]*$/.test($(this).val()))
+				 	$(".evaluation").removeClass().addClass("evaluation str4");
+				}else{
+					$("#password span").removeClass().addClass("error").text("输入有误");
+				}
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="login">
+		<ul>
+		<form action="">
+			<li id="qq">
+				<label>QQ</label>
+				<input type="num">
+				<span></span>
+			</li>
+			<li id="phone">
+				<label>手机</label>
+				<input type="num">
+				<span></span>
+			</li>
+			<li id="email">
+				<label>邮箱</label>
+				<input type="email">
+				<span></span>
+			</li>
+			<li id="phone1">
+				<label>座机</label>
+				<input type="num" id="num">
+				<span></span>
+			</li>
+			<li id="account">
+				<label>账号</label>
+				<input type="text">
+				<span></span>
+			</li>
+			<li id="password">
+				<label>密码</label>
+				<input type="password">
+				<span></span>
+			</li>
+			<li class="evaluation">
+			</li>
+		</form>
+		</ul>
+	</div>
+</body>
+</html>

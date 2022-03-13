@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>旋转的楚乔传</title>
+	<style type="text/css">
+		.box{
+			width: 450px;
+			height: 300px;
+			margin: 350px auto;
+			position: relative;
+			border: 1px solid red;
+			margin-left: 225px;
+		}
+		.box div{
+			transition: all 0.6s;
+			transform-origin: top right;
+		}
+		.box img{
+			width: 450px;
+			height: 300px;
+		}
+		.box div:nth-child(n){
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.box:hover div:nth-child(2){
+			transform: rotate(60deg);
+		}
+		.box:hover div:nth-child(3){
+			transform: rotate(120deg);
+		}
+		.box:hover div:nth-child(4){
+			transform: rotate(180deg);
+		}
+		.box:hover div:nth-child(5){
+			transform: rotate(240deg);
+		}
+		.box:hover div:nth-child(6){
+			transform: rotate(300deg);
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box">
+	<div><img src="images/6.jpg"></div>
+	<div><img src="images/5.jpg"></div>
+	<div><img src="images/4.jpg"></div>
+	<div><img src="images/3.jpg"></div>
+	<div><img src="images/2.jpg"></div>
+	<div><img src="images/1.jpg"></div>
+	</div>
+</body>
+</html>

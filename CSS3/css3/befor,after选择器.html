@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>befor,after元素选择器</title>
+	<style type="text/css">
+		div{
+			background-color: pink;
+			width: 100px;
+			height: 100px;
+			margin: 100px auto;
+			position: relative;
+		}
+		div::before{ /*必须结合content属性使用*/
+			content: "";
+			position: absolute;
+			right: 100px;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			border-radius: 50px;
+		}
+		div::after{
+			content: "";
+			position: absolute;
+			left: 100px;
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			border-radius: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

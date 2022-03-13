@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">点我发送请求</button>
+	<script src="/js/ajax.js"></script>
+	<script>
+	//需要在服务器端设置两个属性
+	//res.herder('Access-Control-Allow-Origin','*');
+	//res.header('Access-Control-Allow-Methods','get,post');
+	//可以使用appp.use()拦截所有
+		// 获取按钮
+		var btn = document.getElementById('btn');
+		// 为按钮添加点击事件
+		btn.onclick = function () {
+			ajax({
+				type: 'get',
+				url: 'http://localhost:3000/cors',
+				//url: '/request1',
+				success: function (data) {
+					console.log(data)
+				}
+			})
+		};
+	</script>
+</body>
+</html>

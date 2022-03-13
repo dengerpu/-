@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小黄人制作</title>
+	<style type="text/css">
+	/*<!-- 小黄人容器 -->*/
+		.wrap{
+			width: 400px;
+			height: 600px;
+			margin: 0 auto;
+			border: 1px solid red;
+			position: relative;
+		}
+		/*小黄人身体*/
+		.xbody{
+			width: 250px;
+			height: 400px;
+			border: 5px solid #000;
+			border-radius: 125px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+/*			margin-top: -205px;
+			margin-left: -130px;*/
+			transform: translate(-50%,-50%);
+			background-color: yellow;
+			position: relative;
+			overflow: hidden;
+		}
+		/*小黄人头发*/
+		.hair1,.hair2{
+			width: 130px;
+			height: 100px;
+			border-top: 10px solid #000;
+			border-radius:50%;
+			position: absolute;
+		}
+		.hair1{
+			left: 100px;
+			top: 80px;
+			transform: rotate(48deg);
+		}
+		.hair2{
+			left: 100px;
+			top: 70px;
+			transform: rotate(48deg);
+		}
+		/*小黄人手臂*/
+		.xlhand,.xrhand{
+			width: 100px;
+			height: 100px;
+			border:5px solid #000;
+			position: absolute;
+			border-radius: 30px;
+			background-color: yellow;
+			z-index: -1;
+		}
+		.xlhand{
+			left: 50px;
+			top: 300px;
+			transform: rotate(30deg);
+		}
+		.xrhand{
+			right: 50px;
+			top: 300px;
+			transform: rotate(-30deg);
+		}
+		.xlhand::after,.xrhand::after{
+			content: "";
+			width: 30px;
+			height: 10px;
+			background-color: #000;
+			position: absolute;
+			border-radius: 5px;
+		}
+		.xlhand::after{
+			left: 6px;
+			top: 60px;
+			transform: rotate(-90deg);
+		}
+		.xrhand::after{
+			right: 6px;
+			top: 60px;
+			transform: rotate(-90deg);
+		}
+		/*腿*/
+		.xfootl,.xfootr{
+			width: 40px;
+			height: 70px;
+			background-color: #000;
+			position: absolute;
+			z-index: -1;
+		}
+		.xfootl{
+			left: 155px;
+			top: 490px;
+		}
+		.xfootr{
+			right: 155px;
+			top: 490px;
+		}
+		/*脚*/
+		.xfootl::after,.xfootr::after{
+			content: "";
+			width: 60px;
+			height: 40px;
+			background-color: #000;
+			border-radius: 20px;
+			position: absolute;
+		}
+		.xfootl::after{
+			left: -40px;
+			top: 30px;
+		}
+		.xfootr::after{
+			right: -40px;
+			top: 30px;
+		}
+		/*眼睛*/
+		.eyes{
+			width: 100%;
+			height: 100px;
+			position: absolute;
+			top: 60px;
+			left: 24px;
+		}
+		.eyesl,.eyesr{
+			width: 90px;
+			height: 90px;
+			border:5px solid #000;
+			border-radius: 50%;
+			background-color: #fff;
+			float: left;
+		}
+		.eyesl::after,.eyesr::after{
+			content:"";
+			width: 30px;
+			height: 20px;
+			position: absolute;
+			background-color: #000;
+
+		}
+		.eyesl::after{
+			left: -26px;
+			top: 35px;
+			transform: rotate(20deg);
+			border-radius: 2px 7px 0 2px;
+		}
+		.eyesr::after{
+			right: 23px;
+			top: 35px;
+			transform: rotate(-10deg);
+			border-radius: 7px 2px 0 0px;
+		}
+		/*眼珠*/
+		.l-black,.r-black{
+			width: 50px;
+			height: 50px;
+			background-color: #000;
+			border-radius:50%;
+			position: absolute;
+		}
+		.l-black{
+			left: 25px;
+			top: 25px;
+		}
+		.r-black{
+			left: 125px;
+			top: 25px;
+		}
+		/*眼珠白色部分*/
+		.l-white,.r-white{
+			width: 20px;
+			height: 20px;
+			background-color: #fff;
+			border-radius:50%;
+			position: absolute;
+		}
+		.l-white{
+			left: 50px;
+			top: 40px;
+		}
+		.r-white{
+			left: 130px;
+			top: 40px;
+		}
+		/*制作嘴巴*/
+		.mouth{
+			width: 60px;
+			height: 35px;
+			border: 5px solid #000;
+			border-radius: 0 0 0 30px;
+			background-color: #fff;
+			position: absolute;
+			left: 90px;
+			top: 180px;
+			transform: rotate(-30deg);
+		}
+		.mouth::after{
+			content: "";
+			width: 80px;
+			height: 40px;
+			background-color: yellow;
+			position: absolute;
+			border-bottom: 5px solid #000;
+			left: 1px;
+			top: -22px;
+			transform: rotate(30deg);
+		}
+		/*制作裤子*/
+		.trousers{
+			width: 100%;
+			height: 150px;
+			position: absolute;
+			top: 260px;
+		}
+		.top{
+			width: 150px;
+			height: 50px;
+			background-color: blue;
+			border: 5px solid #000;
+			border-bottom: none;
+			position: absolute;
+			left :45px;
+			z-index: 999;
+		}
+		.but{
+			width: 250px;
+			height: 85px;
+			background-color: blue;
+			position: absolute;
+			top: 50px;
+			border-top: 5px solid #000;
+		}
+		/*制作肩带*/
+		.top-l,.top-r{
+			width: 100px;
+			height: 20px;
+			background-color: blue;
+			border: 5px solid #000;
+			position: absolute;
+			top: -24px;
+		}
+		.top-l{
+			left: -74px;
+			transform: rotate(35deg);
+
+		}
+		.top-r{
+			right: -74px;
+			transform: rotate(-35deg);
+		}
+		.top-l::after,.top-r::after{
+			content: "";
+			width: 10px;
+			height: 10px;
+			background-color: #000;
+			border-radius: 50%;
+			position: absolute;
+			top: 5px;
+		}
+		.top-l::after{
+			left: 87px;
+		}
+		.top-r::after{
+			left: 3px;
+		}
+		/*头发动画效果*/
+		.hair1,.hair2{
+			animation: hairmove  5s ease-in infinite;
+		}
+		@keyframes hairmove{
+			10%,50%,100%{
+				transform: rotate(48deg);
+			}
+			20%{
+				transform: rotate(57deg);
+			}
+			80%{
+				transform: rotate(57deg);
+			}
+		}
+
+		/*眼睛动画效果*/
+		.l-black,.r-black{
+			animation: eyesmove 5s ease-in infinite;
+		}
+		@keyframes eyesmove{
+			10%,50%,100%{
+				transform: translate(0);
+			}
+			20%{
+				transform: translate(20px);
+			}
+			80%{
+				transform:translate(-20px);
+			}
+		}
+				/*眼珠动画效果*/
+		.l-white,.r-white{
+			animation: whitemove 5s ease-in infinite;
+		}
+		@keyframes whitemove{
+			10%,50%,100%{
+				transform: translate(0,0);
+			}
+			20%{
+				transform: translate(20px,4px);
+			}
+			80%{
+				transform:translate(-20px,4px);
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- 小黄人容器 -->
+	<div class="wrap">
+	<!-- 头发 -->
+		<div class="hair">
+			<div class="hair1"></div>
+			<div class="hair2"></div>
+		</div>
+		<!-- 身体 -->
+		<div class="xbody">
+				<!-- 眼睛 -->
+				<div class="eyes">
+					<!-- 左眼睛 -->
+					<div class="eyesl">
+						<div class="l-black"></div>
+						<div class="l-white"></div>
+					</div>
+					<!-- 右眼睛 -->
+					<div class="eyesr">
+						<div class="r-black"></div>
+						<div class="r-white"></div>
+					</div>
+				</div>
+				<!-- 嘴巴 -->
+				<div class="mouth"></div>
+				<!-- 裤子 -->
+				<div class="trousers">
+					<!-- 裤子上部分 -->
+					<div class="top">
+						<div class="top-l"></div>
+						<div class="top-r"></div>
+					</div>
+					<!-- 裤子下部分 -->
+					<div class="buttom">
+						<div class="but"></div>
+					</div>
+				</div>	
+		</div>
+		<!-- 手臂 -->
+		<div class="xhand">
+			<div class="xlhand"></div>
+			<div class="xrhand"></div>
+		</div>
+		<!-- 腿 -->
+		<div class="xfoot">
+			<div class="xfootl"></div>
+			<div class="xfootr"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+	<input type="text" v-model="name"><br>
+	<input type="password" v-model="pwd">
+	<input type="button" @click="submit" value="提交">
+	</div>
+	<script type="text/javascript">
+	var params='';
+	var vm = new Vue({
+		el:"#app",
+		data:{
+			name:"",
+			pwd:""
+		},
+		methods:{
+			submit:function(){
+				params='name='+this.name+'&pwd='+this.pwd+'';
+				var xhr = new XMLHttpRequest();
+				xhr.open('get','http://localhost:80/get?'+params);
+				xhr.send();
+				xhr.onload = function(){
+					const responseText = JSON.parse(xhr.responseText);
+					console.log(responseText);
+
+				}
+			}
+		}
+	})
+	</script>
+</body>
+</html>

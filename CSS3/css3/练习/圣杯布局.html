@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>圣杯布局</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding:0;
+		}
+		.box{
+			min-width: 400px;
+			height: 200px;
+			background-color: #eee;
+			padding: 0 200px;/*留200像素给左右*/
+		}
+		.left,.right{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			float: left;
+		}
+		.center{
+			width: 100%;
+			height: 200px;
+			background-color: blue;
+			float: left;
+		}
+		.left{
+			margin-left: -100%;
+			position: relative;
+			left: -200px;
+		}
+		.right{
+			margin-left: -200px;
+			position: relative;
+			right: -200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+	<div class="center">中间部分</div>
+		<div class="left">左边</div>
+		<div class="right">右边</div>
+	</div>
+</body>
+</html>

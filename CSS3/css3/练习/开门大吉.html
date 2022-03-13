@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>开门大吉</title>
+	<style type="text/css">
+		section{
+			width: 450px;
+			height: 300px;
+			border: 1px solid #000;
+			margin: 100px auto;
+			background: url("images/1.jpg");
+			position: relative;
+			perspective: 1000px;
+		}
+		.doorl,.doorr{
+			position: absolute;
+			top: 0;
+			width: 50%;
+			height: 100%;
+			background: url("images/bg.png") repeat;
+			z-index: 999;
+		}
+		.doorl{
+			left: 0;
+			border-right: 1px solid #000;
+			transform-origin:left;
+		}
+		 .doorr {
+            right: 0;
+            border: 1px solid #000;
+            transform-origin: right;/*  右侧盒子按照右边翻转*/
+        }
+		.doorl::before,.doorr::before{
+			content: "";
+			position: absolute;
+			top: 50%;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			border:1px solid #000;
+			transform: translateY(-50%);
+		}
+		.doorl::before{
+			right: 5px;
+		}
+		.doorr::before{
+			left: 5px;
+		}
+		section:hover .doorl{
+			transform: rotateY(-130deg);
+		}
+		section:hover .doorr{
+			transform: rotateY(130deg);
+		}
+	</style>
+
+</head>
+<body>
+	<section>
+		<div class="doorl"></div>
+		<div class="doorr"></div>
+	</section>
+</body>
+</html>
