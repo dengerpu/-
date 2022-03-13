@@ -1,0 +1,5 @@
+{{include './header.art'}}
+<% include('./header.art')%>
+--------------------------------
+{{include './footer.art'}}
+<% include('./footer.art')%>

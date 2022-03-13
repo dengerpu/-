@@ -1,0 +1,16 @@
+
+		fieldset{
+			width: 350px;
+			height: 400px;
+		}
+		form{
+			margin: 0 auto;
+		}
+		legend{
+			margin:10px;
+		}
+		.sub{
+			width: 300px;
+			height: 30px;
+			margin: 0 auto;
+		}
