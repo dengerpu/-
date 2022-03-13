@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用对象</title>
+</head>
+<body>
+<pre>
+<h1>
+var o=new Object();   //构造原型对象
+var date=new Date();   //构造日期对象
+var ptn=new RegExp("ab+c","i");    //构造正则表达式
+
+
+var point={
+	x:2.3,
+	y:1.2
+
+};
+var x=point.x;   //访问对象的属性值
+
+var point={
+	f:function(){
+	return this.y;
+	}
+	y:1.2
+};
+var y=point.f();
+
+
+var point={
+	x:{
+	a:1,
+	b:2
+	},
+	y:1.2
+};
+var y=point.x.a;
+
+var point={
+	x:{
+	a:1,
+	b:2
+	},
+	y:1.2
+};
+var y=point["x"]["a"];    //访问嵌套对象的属性值
+</h1>
+</pre>
+	<script type="text/javascript">
+var point={
+	x:{
+	a:1,
+	b:2
+	},
+	y:1.2
+};
+var a=point["x"]["a"];    
+alert(a);
+	</script>
+</body>
+</html>

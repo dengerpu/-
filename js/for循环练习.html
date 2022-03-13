@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>求平均成绩</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var n=prompt('请输入班级总人数');
+	var sum=0,aver;
+	for(var i=1;i<=n;i++)
+		sum+=parseInt(prompt('请输入第'+i+'个人的成绩'));
+	aver=sum/n;
+	alert('总成绩为：'+sum);
+	alert('平均分为：'+aver);
+	</script>
+</body>
+</html>

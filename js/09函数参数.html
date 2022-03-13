@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数参数</title>
+</head>
+<body>
+<pre>
+length属性可以求形参的个数
+function add(a,b){
+return a+b;}
+alert(add.length);
+
+如果传入参数多于形参，自动省略后面的。
+
+
+function add(a,b){
+		return a+b;}
+	alert(add(2);    返回2与underfined相加的值，NaN
+
+
+		function add(a,b){
+		if(add.length!=arguments.length)   //检测形参合适餐是否一致
+			throw new Error("形参和实参不一致，请重新代用函数");
+		else
+			return a+b;
+	}
+	try{
+		alert(add(2));
+	}
+	catch(e){
+		alert(e.message);    		//捕获异常信息
+	}
+
+<h1>
+java中异常捕获
+try{
+	//可能发生异常的语句
+}catch（Exception 类或其子类 e）{
+	//对捕获的异常进行相应处理
+}
+</h1>
+</pre>
+	<script type="text/javascript">
+	/*function add(a,b){
+		return a+b;}
+	alert(add.length);
+	function add(a,b){
+		return a+b;}
+	alert(add(2));*/
+
+	function add(a,b){
+		if(add.length!=arguments.length)   //检测形参合适餐是否一致
+			throw new Error("形参和实参不一致，请重新代用函数");
+		else
+			return a+b;
+	}
+	try{							//和Java中的捕捉异常信息链接起来
+		alert(add(2));
+	}
+	catch(e){
+		alert(e.message);    		//捕获异常信息
+	}
+
+</script>
+</body>
+</html>

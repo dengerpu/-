@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>条件语句</title>
+</head>
+<body>
+<pre>
+if(typeof(o)=="undefined")    //可以判断语句是否初始化，如果没有，创建一个
+o=new Object();              //如果o未定义，重新定义
+
+switch(expression){
+case label1:statement1;break;
+case label2:statement2;break;
+.
+.
+.
+default:statement;
+}
+
+</pre>
+	<script type="text/javascript">
+	var age=prompt("你好，请输入你的年级","");  //这个，“”没啥作用啊
+	switch(age){
+		case "1":alert("你上一年级");break;
+		case "2":alert("你上二年级");break;
+		default:alert("你是小学生");
+	}
+	</script>
+</body>
+</html>

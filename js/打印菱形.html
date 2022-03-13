@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>打印菱形</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var n=prompt('请输入行数');
+	var i,j,k,str='';
+	for(i=1;i<=n;i++){
+		for(j=1;j<=n-i;j++)
+			str+=' ';
+		for(k=1;k<=2*i-1;k++)
+			str+='*';
+		str+='\n';
+	}
+	for(i=n-1;i>=1;i--){
+		for(j=1;j<=n-i;j++)
+			str+=' ';
+		for(k=1;k<=2*i-1;k++)
+			str+='*';
+		str+='\n';
+	}
+	console.log(str);
+
+	</script>
+	}
+</body>
+</html>

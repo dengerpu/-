@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组练习</title>
+</head>
+<body>
+<pre><h1>
+var a=new Array（）; 定义一个空数组
+var a=new Array(1,2,3,"4");  定义有参数的数组
+var a=new Array(6);    定义指定长度的数组
+var a=Array(6);   可以不用new
+var a=[1,2,3,4,"4"];  数组直接量，更快，更方便
+
+
+数组的大小不是固定的，可以动态增加或删除元素
+改变数组的长度时，会自动在数组的末尾增加或删除元素，已实现改变数组的大小
+使用delete运算符可以删除数组元素的值，但是不会改变length属性的值
+
+push（）和pop()   push()可以带多个任意类型的参数，按顺序插入到数组末尾
+
+unshift() shift() 作用于数组头部
+
+splice()  通常是一个通用删除和插入元素的方法，可以再数组指定的位置开始删除或插入元素
+splice()方法包括三个参数，第一个参数指定插入的起始位置，第二个参数指定要删除元素的个数，第三个参数表示要插入的具体元素
+
+var a=[1,2,3,4,5,6];
+var b=a.splice(2,2);    //b=[3,4];  a=[1,2,5,6];
+
+var a=[1,2,3,4,5,6];
+var b=a.splice(2,2,7,8,9);    //b=[3,4];  a=[1,2,7,8,9,5,6];
+
+
+</h1></pre>
+<script type="text/javascript">
+var a=[1,2,3,4,5,6,8,7];
+a.length=4;
+alert(a);
+
+var a=[];
+a.push(1,2,3,"4");
+alert(a);
+alert(a.pop());
+
+var a=[1,2,3];
+a.unshift(4,5);
+alert(a);
+a.shift();
+alert(a);
+
+
+</script>
+	
+</body>
+</html>

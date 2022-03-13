@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>打印星星</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var rows=prompt('请输入行数');
+	var cols=prompt('请输入列数');
+	var i,j;
+	var str='';
+	for(i=1;i<=rows;i++){
+		for(j=1;j<=cols;j++)
+			str+='*';
+		str+='\n';
+	}
+	console.log(str);
+	</script>
+</body>
+</html>

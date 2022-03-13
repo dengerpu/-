@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	
+</head>
+<body>
+网页内容：要分清全局变量和局部变量<br/>
+	<title>使用变量</title>
+	<script type="text/javascript">
+	var a="a（域外）全局变量<br/>";
+	var b="b（域外）全局变量<br/>";
+	function hi(){
+		var a="a（域内）局部变量<br/>";
+		var b="b（域内）全局变量<br/>";
+		document.write(a);
+		document.write(b);
+	}
+	hi();
+		document.write(a);
+		document.write(b);
+	</script>
+</body>
+</html>
