@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>transfrom</title>
+	<style type="text/css">
+	.body{
+		width: 200px;
+		height: 200px;
+		border: 1px solid red;
+	}
+	.body img{
+		width: 100px;
+		height: 100px;
+	}
+	.body>div:hover{
+		/*transform: translate(100px,100px);*/
+		transform:rotate(180deg);
+		transform: scale(1.5,2);
+		transform: skew(500deg);
+	}
+	</style>
+</head>
+<body>
+	<div class="body"><div><img src="1.jpg"></div></div>
+</body>
+</html>

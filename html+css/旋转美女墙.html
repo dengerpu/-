@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旋转美女墙</title>
+    <style type="text/css">
+    .wutai{
+        width: 800px;
+        height: 500px;
+        margin: 0 auto;
+      /*  border:1px solid red;*/
+        margin-top: 100px;
+    }
+    .rongqi{
+        margin: 0 auto;
+        width: 200px;
+       height: 400px;
+        position: relative;
+        perspective: 1000px;
+        perspective-origin: center -200px;
+        transform-style: preserve-3d;
+        animation-name: xuanzhuan;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+    }
+    .rongqi>img{
+        position: absolute;
+
+    }
+    .rongqi>img:hover{
+        animation-play-state: paused;
+    }
+    .rongqi>img:nth-child(1){
+        transform:rotatey(40deg) translatez(300px);
+    }
+    .rongqi>img:nth-child(2){
+        transform:rotatey(80deg) translatez(300px);
+    }
+    .rongqi>img:nth-child(3){
+        transform: rotatey(120deg) translateZ(300px);
+    }
+    .rongqi>img:nth-child(4){
+        transform: rotatey(160deg) translateZ(300px);
+    }
+    .rongqi>img:nth-child(5){
+        transform: rotatey(200deg) translateZ(300px);
+    }
+    .rongqi>img:nth-child(6){
+        transform: rotatey(240deg) translateZ(300px);
+    }
+    .rongqi>img:nth-child(7){
+        transform: rotatey(280deg) translateZ(300px);
+    }
+
+    .rongqi>img:nth-child(8){
+        transform: rotatey(320deg) translateZ(300px);
+    }
+    .rongqi>img:nth-child(9){
+        transform: rotatey(360deg) translateZ(300px);
+    }
+    @keyframes xuanzhuan{
+			0%{
+				transform:rotatex(-15deg) rotatey(0deg);
+			}
+			100%{
+				transform:rotatex(-15deg) rotatey(360deg);
+			}
+		}
+    
+    
+    </style>
+</head>
+<body>
+    <div class="wutai">
+        <div class="rongqi">
+        <img src="images/01.gif">
+        <img src="images/02.gif">
+        <img src="images/03.gif">
+        <img src="images/04.gif">
+        <img src="images/05.gif">
+        <img src="images/06.gif">
+        <img src="images/07.gif">
+        <img src="images/08.gif">
+        <img src="images/09.gif">
+        </div>
+    </div>
+</body>
+</html>
