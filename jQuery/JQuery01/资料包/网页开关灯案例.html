@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页开关灯案列</title>
+	<style type="text/css">
+		.cls{
+			background-color: black;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("input").click(function(){
+				// $("body").toggleClass("cls");
+				if(!$("body").hasClass("cls")){
+					$("body").addClass("cls");
+				}else{
+					$("body").removeClass();
+				}
+			})
+		})
+	</script>
+</head>
+<body>
+	<input type="button" name="" value="开关灯">
+</body>
+</html>

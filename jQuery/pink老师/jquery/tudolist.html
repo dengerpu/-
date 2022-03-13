@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>todolist-最简单的待办事项列表</title>
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+			font-size: 16px;
+			background: #cdcdcd;
+		}
+		section{
+			margin: 0 auto;
+		}
+		header{
+			height: 50px;
+			background: #333;
+			background: rgba(47,47,47,0.98);
+		}
+		label{
+			float: left;
+			width: 100px;
+			line-height: 50px;
+			color: #ddd;
+			font-size: 24px;
+			cursor: pointer;
+			  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		}
+		header input{
+			float: right;
+			width: 60%;
+			height: 24px;
+			margin-top: 12px;
+			text-indent: 10px;
+			border-radius: 5px;
+			box-shadow: 0 1px 0 rgba(250,250,250,0.24),0 1px 6px rgba(0,0,0,0.45) inset;
+			border: none;
+			outline: none;
+		}
+		h2{
+			position: relative;
+		}
+		span{
+			position: absolute;
+			top:2px ;
+			right: 5px;
+			display: inline-block;
+			padding: 0 5px;
+			height: 20px;
+			border-radius: 20px;
+			background: #e6e6fa;
+			text-align: center;
+			color: #666;
+			font-size: 14px;
+		}
+		ol,ul{
+			padding: 0;
+			list-style: none;
+		}
+		li{
+			position: relative;
+			height: 32px;
+			line-height: 32px;
+			background: #fff;
+			margin-bottom: 10px;
+			padding: 0 45px;
+			border-radius: 3px;
+			border-left: 5px solid #629a9c;
+			box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+			cursor: pointer;
+		}
+		li input{
+			position: absolute;
+			top: 2px;
+			left: 20px;
+			width: 22px;
+			height: 22px;
+			cursor: pointer;
+		}
+		p{
+			margin: 0;
+			padding: 0 5px;
+		}
+		ul li{
+			border-left: 5px solid #999;
+			opacity: 0.5;
+		}
+		li a{
+			position: absolute;
+			top: 2px;
+			right: 5px;
+			display: inline-block;
+			width: 14px;
+			height: 12px;
+			border-radius: 14px;
+			border: 6px double #fff;
+			background: #ccc;
+			line-height: 14px;
+			text-align: center;
+			color: #fff;
+			font-weight: bold;
+			font-size: 14px;
+			cursor: pointer;
+		}
+		footer{
+			color: #666;
+			font-size: 14px;
+			text-align: center;
+		}
+		footer a{
+			text-decoration: none;
+			color: #999;
+		}
+		@media screen and (min-width: 620px){
+			.box,section{
+				width: 600px;
+				padding:  0 10px;
+				margin: 0 auto;
+			}
+		}
+	</style>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			
+			load();
+			//按下回车，将数据存储到本地存储里面
+			//存储数据格式 var todolist=[{title:"xxx",done:false}]
+			$("#title").on("keydown",function(e){
+				if(e.keyCode==13){
+					if($(this).val()==""){
+						alert('请输入你要的操作');
+					}else{
+						var local=getDate();
+						local.push({
+							title:$(this).val(),
+							done:false
+						});
+						saveDate(local);
+						load();  //渲染到页面上
+						$(this).val("");
+					}
+				}
+			})
+			//删除事件
+			$("ol,ul").on("click","a",function(){
+				var data=getDate();
+				var index=$(this).prop("id");
+				data.splice(index,1);
+				saveDate(data);  //保存到本地
+				load();		//重新渲染
+			})
+
+
+			//正在进行和已完成事件选项操作
+			$("ol,ul").on("click","input",function(){
+				var data=getDate();
+				var index=$(this).siblings("a").attr("id");
+				data[index].done=$(this).prop("checked");
+				saveDate(data);  //重新保存到本地
+				load();  //重新渲染
+			})
+
+			// 存储本地数据
+			function saveDate(data){
+				//本地存储数据只能识别字符串，所以要转化为字符串
+				localStorage.setItem("todolist",JSON.stringify(data));
+			}
+
+			//读取本地存储数据
+			function getDate(){
+				var data=localStorage.getItem("todolist");
+				if(data!==null)
+					//本地存储里面的数据是字符串格式的，我们需要转化为对象
+					return JSON.parse(data);
+				else return [];
+			 }
+
+			 //将数据渲染到页面上
+			 function load(){
+			 	var data=getDate();  //读取本地数据
+			 	$("ol,ul").empty();    //先把之前有的全清空，才能重新渲染
+			 	var todoCount=0;
+			 	var doneCount=0;
+			 	$.each(data,function(i,ele){
+			 		if(ele.done){
+			 			$("ul").prepend("<li><input type='checkbox' checked='checked'><p>"+ele.title+"</p><a href='javascript:;' id="+i+"></a></li>");
+			 			doneCount++;
+			 		}else{
+			 			$("ol").prepend("<li><input type='checkbox'><p>"+ele.title+"</p><a href='javascript:;' id="+i+"></a></li>")
+			 			todoCount++;
+			 		}
+			 	})
+			 	$("#todocount").text(todoCount);
+			 	$("#donecount").text(doneCount);
+			 }
+
+		})
+	</script>
+</head>
+<body>
+	<header>
+		<div class="box">
+			<label for="title">ToDoList</label>
+			<input type="text" id="title" name="title"  placeholder="添加ToDo" required="required" autocomplete="off" >
+		</div>
+	</header>
+	<section>
+		<h2>正在进行<span id="todocount">0</span></h2>
+		<ol id="todolist" class="ol">
+<!-- 			<li>
+				<input type="checkbox">
+				<p>今天将要完成的事情</p>
+				<a href=""></a>
+			</li> -->
+		</ol>
+		<h2>已经完成 <span id="donecount">0</span></h2>
+		<ul id="donelist">
+<!-- 			<li>
+				<input type="checkbox">
+				<p>今天已经完成的事情</p>
+				<a href=""></a>
+			</li> -->
+		</ul>
+	</section>
+	    <footer>
+        Copyright &copy; 2014 todolist.cn
+    </footer>
+</body>
+</html>

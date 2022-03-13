@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>delegate添加事件</title>
+	    <style>
+        div{
+            width: 200px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+
+	<script type="text/javascript" src="my.js"></script>
+	<script type="text/javascript">
+	// $(function(){
+	// 	var i=0;
+	// 	$("#btn").bind("mouseover mouseout",function(){
+	// 		i++;
+	// 		console.log(i);
+	// 	})
+	// })
+	$(function(){
+		$("<p>11</p>").appendTo($("#dv"));
+		// delegate添加事件
+		// 父级元素.delegate（1.要绑定事件的元素2.事件名字3.匿名函数）
+		$("#dv").delegate("p","click",function(){
+			alert("我被点了");
+		})
+	})
+	</script>
+</head>
+<body>
+	<input type="button" value="显示效果" id="btn"/>
+<div id="dv">
+<p>我是p</p>
+</div>
+<p>p元素</p>
+</body>
+</html>

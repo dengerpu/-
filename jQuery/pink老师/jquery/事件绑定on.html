@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件绑定函数on</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		// 用法 element.on('事件名称',[子代选择器]，处理函数)
+		// 若有两个参数  元素.on("事件名称","事件处理函数")
+		// 3个参数 父级元素.on("事件名称"，"子代元素",'事件处理函数')
+		
+		// $(".abc").on('click',function(){
+		// 	$(this).css({"backgroundColor":"pink","color":"blue"});
+		// })
+		// 注册多个事件，也可以这样写
+		
+		// $(".abc").on('click mouseenter',function(){
+		// 	$(this).css("backgroundColor","pink");
+		// })
+
+		// $(".abc").on({
+		// 	click:function(){
+		// 		alert(111);
+		// 	},
+		// 	mouseenter:function(){
+		// 		$(this).css("backgroundColor","pink");
+		// 	}
+		// })
+		// 
+		// 
+		// 也可以通过事件委托的方式给子代元素添加事件
+		$("div").on("click","p",function(){
+			$(this).css("backgroundColor","red");   //这里的this指的是子带元素
+		})
+
+		//该方法可以为动态添加的元素绑定事件
+		// $("p").mouseover(function(){
+		// 	$(this).css("backgroundColor","pink");
+		// })
+		var p=$("<p>0</p>");
+		$("div").append(p);
+
+
+
+		// 解绑事件
+		// $("div").off();   //解绑所有事件
+		// $("div").off("click"); 
+	</script>
+</head>
+<body>
+<div>
+	<span>1</span>
+	<p>2</p>
+	<i>3</i>
+</div>
+<div class="abc">我是abc</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件绑定函数on</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script>
+        $(function(){
+            $("#btn").click(function(){
+                //alert("btn");
+                $.ajax({
+                    //编写json格式，设置属性和值
+                    url:'http://localhost:8888/user/testAjax',
+                    contentType:"application/json;charset=UTF-8",
+                    data:'{"username":"zhangsan","password":"1234","age":18}',
+                    dataType:"json",
+                    type:"post",
+                    successs:function(data){
+                        //data服务器端响应json数据，进行解析
+                        console.log(data);
+                        alert(data);
+                        alert(data.username);
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+<button  id="btn">发送ajax请求</button>
+</body>
+</html>

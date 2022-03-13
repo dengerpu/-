@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清空元素内容的方法</title>
+	<style>
+        div{
+            width: 300px;
+            height: 200px;
+            background-color: red;
+            margin-top: 20px;
+        }
+    </style>
+	<script type="text/javascript" src="jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+			$(function(){
+				//1.元素.html（“”）
+				//2.元素.empty()
+				//3.元素.remove()  //也会清楚自身元素
+				$("#btn").click(function(){
+					// $("#dv").html("");
+					// $("#dv").empty();
+					$("#dv").remove();
+				})
+				$("#btn2").click(function(){
+					var span=$("#dv>span").clone();
+					$("#dv2").append(span);
+				})
+			})
+	</script>
+</head>
+<body>
+	<input type="button" value="显示清空效果" id="btn"/>
+<input type="button" value="显示克隆效果" id="btn2"/>
+<div id="dv">
+    <span>今天天气真好啊,助教来到桃花岛看见导师在洗澡....</span>
+</div>
+<div id="dv2"></div>
+
+</body>
+</html>

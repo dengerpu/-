@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取元素宽和高</title>
+	<style>
+        div{
+            width: 200px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+
+	<script type="text/javascript" src="jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$("#btn").click(function(){
+			//width获取到的是数字类型
+			//.css("width")获取到的是带单位的
+			console.log($("#dv").width());
+			console.log($("#dv").css("width"));
+			var width=$("#dv").width()*2;
+			$("#dv").width(width);
+			$("#dv").css("height",width);
+		})
+	})
+	</script>
+</head>
+<body>
+	<input type="button" value="显示效果" id="btn"/>
+<div id="dv"></div>
+</body>
+</html>

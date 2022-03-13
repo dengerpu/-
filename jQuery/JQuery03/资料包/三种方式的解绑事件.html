@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>三种事件的解绑事件</title>
+	<script type="text/javascript" src="my.js"></script>
+	<script type="text/javascript">
+	//通过on的off方式的解绑事件
+	// $(function(){
+	// 	$("#btn1").on("click",function(){
+	// 		alert(11);
+	// 	})
+	// 	$("#btn2").on("click",function(){
+	// 		//off()参数：要解绑的事件名称
+	// 		$("#btn1").off("click");
+	// 	})
+	// })
+	
+
+	//通过undelegeta解绑事件
+	// $(function(){
+	// 	$("#btn1").on("click",function(){
+	// 		$("#dv").delegate("p","click",function(){
+	// 		alert(222);
+	// 	})
+	// 	})
+	// 	$("#btn2").on("click",function(){
+	// 		$("#dv").undelegate("p","click");
+	// 	})
+
+	// })
+	
+
+	//通过unbind解绑事件
+	$(function(){
+		$("#btn1").bind("click",function(){
+			alert(222);
+		})
+		$("#btn2").on("click",function(){
+			$("#btn1").unbind("click");
+		})
+	})
+	</script>
+</head>
+<body>
+	<input type="button" value="绑定事件" id="btn1"/>
+	<input type="button" value="解绑事件" id="btn2"/>
+<div id="dv">
+    <p>这是div中的一个p标签</p>
+</div>
+
+</body>
+</html>

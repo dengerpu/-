@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fadeIn.fadeOut.fadeToggle,fadeTo</title>
+	<style>
+        div{
+            width: 200px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+  	<script type="text/javascript" src="jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$("#btn1").click(function(){
+			$("#dv").stop().fadeIn();
+		})
+		$("#btn2").click(function(){
+			$("#dv").stop().fadeOut();
+		})
+		$("#btn3").click(function(){
+			$("#dv").stop().fadeToggle();
+		})
+		$("#btn4").click(function(){//透明度发生变化
+		})
+			$("#dv").stop().fadeTo(500,0.1);  
+	})
+	</script>
+</head>
+<body>
+	<input type="button" value="淡入" id="btn1"/>
+<input type="button" value="淡出" id="btn2"/>
+<input type="button" value="切换" id="btn3"/>
+<input type="button" value="透明度变化" id="btn4"/>
+<div id="dv"></div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>show,hide方法</title>
+	    <style>
+        div{
+            width: 200px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+	<script type="text/javascript" src="jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$("#btnHide").click(function(){
+			$("#dv").hide(function(){
+				alert(111);
+			});  //里面可以填数字代表毫秒 ，也可以填 slow,normal,fast;
+		})
+		$("#btnShow").click(function(){
+			$("#dv").show();
+		})
+	})
+	</script>
+</head>
+<body>
+	<input type="button" value="隐藏" id="btnHide"/>
+<input type="button" value="显示" id="btnShow"/>
+<div id="dv"></div>
+
+</body>
+</html>

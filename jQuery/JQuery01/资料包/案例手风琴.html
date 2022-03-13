@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>手风琴案例</title>
+	<style type="text/css">
+		*{margin: 0; padding: 0;}
+		ul{
+			list-style: none;
+		}
+		div{
+			width: 1150px;
+			height: 400px;
+			margin: 50px auto;
+			border: 1px solid red;
+			overflow: hidden;
+		}
+		div li{
+			width: 240px;
+			height: 400px;
+			float: left;
+		}
+		div ul{
+			width: 1300px;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$("ul>li").mouseover(function(){
+			$(this).siblings("li").css("width","100px");
+			$(this).css("width","800px");
+		}).mouseout(function(){
+			$(this).css("width","240px");
+		})
+
+	})
+	</script>
+</head>
+<body>
+	<div id="box">
+    <ul>
+        <li><img src="images/1.jpg"/></li>
+        <li><img src="images/2.jpg"/></li>
+        <li><img src="images/3.jpg"/></li>
+        <li><img src="images/4.jpg"/></li>
+        <li><img src="images/5.jpg"/></li>
+    </ul>
+</div>
+
+</body>
+</html>

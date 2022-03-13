@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绑定多个事件</title>
+	<script type="text/javascript" src="my.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		// $("#btn").click(function(){
+		// 	$(this).css("backgroundColor","red");
+		// }).click(function(){
+		// 	alert(111);
+		// })
+		$("#btn").bind({"mouseover":function(){
+			$(this).css("backgroundColor","red")
+		},"click":function(){
+			alert(111);
+		},"mouseout":function(){
+			$(this).css("backgroundColor","");
+		}})
+	})
+	</script>
+</head>
+<body>
+	<input type="button" value="显示效果" id="btn"/>
+</body>
+</html>

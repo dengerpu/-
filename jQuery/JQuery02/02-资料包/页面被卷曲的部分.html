@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>页面被曲去部分</title>
+	<style type="text/css">
+		div{
+			width: 5000px;
+			height: 5000px;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$(document).scroll(function(){
+
+			console.log("左边的left值"+$(this).scrollLeft());
+			console.log("上边的top值"+$(this).scrollTop());
+		})
+	})
+	</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

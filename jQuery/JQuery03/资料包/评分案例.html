@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>评分案例</title>
+	    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .comment {
+            font-size: 40px;
+            color: yellow;
+        }
+
+        .comment li {
+            float: left;
+        }
+
+        ul {
+            list-style: none;
+        }
+    </style>
+    <script type="text/javascript" src="my.js"></script>
+    <script type="text/javascript">
+    $(function(){
+    	$("ul>li").mouseover(function(){
+    		$(this).text("★").prevAll("li").text("★").end().nextAll().text("☆");
+    	}).mouseout(function(){
+    		$(".comment").find("li").text("☆");
+    		  $(".comment>li[index=1]").text("★").prevAll("li").text("★")
+    	}).click(function(){
+    		$(this).attr("index","1").siblings("li").removeAttr("index");
+    	})
+    })
+    </script>
+</head>
+<body>
+	<ul class="comment">
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+</ul>
+
+</body>
+</html>

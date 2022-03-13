@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画animate方法</title>
+	    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+        }
+    </style>
+
+	<script type="text/javascript" src="jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$("#btn").click(function(){
+			//常用的三个参数
+			//1.键值对--->对象
+			//2.时间-----》毫秒
+			//3.匿名函数---》回调函数
+			$("#dv").stop().animate({
+				width:200,
+				height:300,
+				left:300
+			},1000,function(){
+				$(this).stop().animate({"left":"800px","top":800,"opacity":0.2},1000)
+			})
+		})
+	})
+	</script>
+</head>
+<body>
+	<input type="button" value="显示效果" id="btn"/>
+<div id="dv"></div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>slideUp,slideDown,slideToggle方法</title>
+	    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 100px;
+            background-color: green;
+        }
+        </style>
+	<script type="text/javascript" src="jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#btn1").click(function(){
+				$("#dv").slideUp();
+			})
+			$("#btn2").click(function(){
+				$("#dv").slideDown();
+			})
+			$("#btn3").click(function(){
+				$("#dv").stop().slideToggle();
+			})
+		})
+	</script>
+</head>
+<body>
+<input type="button" value="滑入" id="btn1"/>
+<input type="button" value="滑出" id="btn2"/>
+<input type="button" value="切换" id="btn3"/>
+<div id="dv"></div>
+
+</body>
+</html>

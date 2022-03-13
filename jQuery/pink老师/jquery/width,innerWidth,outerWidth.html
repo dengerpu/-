@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>求宽度</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			padding: 10px;
+			border: 5px solid #ccc;
+			background: pink;
+			margin: 100px auto;
+		}
+	</style>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript">
+		
+		$(function(){
+			//width方法可以求出宽度，得到的是数值类型的
+			console.log($("div").width());
+			//设置宽度也不需要带单位
+			// $("div").width(200);
+			
+
+
+			// innerWidth() 宽度+padding值
+			console.log($("div").innerWidth());
+				// $("div").innerWidth(200); //设置padding+宽度为200
+			//outerWidth() 宽度+padding+border值
+			console.log($("div").outerWidth());
+			// $("div").outerWidth(200);   设置宽度+padding+border为200
+			
+			// outerWidth(true);  宽度+padding+border+margin
+			console.log($("div").outerWidth(true));
+		})
+	</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

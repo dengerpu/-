@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>each遍历的两种方法</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script>
+		$(function(){
+			var arr=["red","yellow","blue"];
+			// 1.$("div").each(function(index,element){xxx;}) index是索引，element得到的是dom对象需要转化为jquery对象
+			$("div").each(function(i,ele){
+				$(ele).css("color",arr[i])
+			})
+
+			//2.遍历的第二种方法，主要用于数组和对象的遍历
+			//$.each(object,function(index,ele){xxx;})同样得到的也是dom对象
+			$.each(arr,function(i,ele){
+				console.log(ele);
+			})
+			
+		})
+	</script>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+</body>
+</html>

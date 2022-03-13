@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态创建元素</title>
+	 <style>
+        div{
+            width: 200px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+	<script type="text/javascript" src="jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//创建元素有两种方法
+			//1.$("标签代码")
+			//2.对象.html("标签代码")
+			//
+			//
+			//向页面添加元素有三种方法
+			//1.append();添加到元素末尾
+			//2.prepend();添加到元素开头
+			//3.子元素.appendTo(父元素)  主动添加到父元素
+			var i=0;
+			$("#btn").click(function(){
+				i++;
+				var obj=$('<a href="www.baidu.com">百度'+i+'</a>');
+				// $("#dv").append(obj);  //在父元素末尾添加元素
+				// $("#dv").prepend(obj);  //在父元素开头添加元素
+				// $("#dv").after(obj);
+				// $("#dv").before(obj);
+				// 元素主动添加到父元素
+				obj.appendTo($("#dv"));
+			})
+			$("#dv").html("<a href='http://www.baidu.com'>百度0 </a>");
+		})
+	</script>
+</head>
+<body>
+	<input type="button" value="创建元素" id="btn"/>
+<div id="dv"></div>
+
+</body>
+</html>

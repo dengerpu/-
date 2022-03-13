@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery页面加载事件</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-3.4.1.js"></script>
+	<script>
+	//页面全部加载完毕
+	//jQuery
+		// $(window).load(function(){
+		// 	$("div").css("background-color","red");
+		// })			
+	//js
+	// window.onload=function(){
+	// 	var div=$("div")[0];
+	// 	div.style.backgroundColor="red";
+	// }
+	
+
+	//js页面基本标签加载完
+	 document.addEventListener('DOMContentLoaded',function(){
+	 	var div=$("div").get(0);
+	 	div.style.width="200px";
+	 	div.style.height="200px";
+	 })
+
+	 //jQuery基本标签加载完
+	 $(document).ready(function(){
+	 	$("div").css({"width":"800px","height":"800px"});
+	 })
+	 $(function(){
+	 	$("div").css("backgroundColor","red");
+	 })
+	 jQuery(function(){
+	 	$("div").css("backgroundColor","green");
+	 })
+	</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

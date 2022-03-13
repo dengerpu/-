@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>复选框选中问题</title>
+		<script type="text/javascript" src="jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+		$(function(){
+				$("#btn").click(function(){
+			//第一个不可以
+			// console.log($("#ck").attr("checked"));
+			console.log($("#ck").prop("checked"));
+			if($("#ck").prop("checked")){
+				$("#ck").prop("checked",false);
+			}else{
+				$("#ck").prop("checked",true);
+			}
+		})
+	})
+	
+		</script>
+</head>
+<body>
+	<input type="button" value="显示状态" id="btn"/>
+<input type="checkbox" value="1" id="ck" />打豆豆
+
+</body>
+</html>

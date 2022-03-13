@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象转化</title>
+	<script type="text/javascript" src="jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		//DOM对象转化为jQuery对象  $(变量名)，就把DOM对象转护卫Jquery对象
+		var btn=document.querySelector('input');
+		$(btn).click(function(){
+			$(this).css("backgroundColor","red");
+		})
+
+		//Jquery对象转化为DOM对象
+		//1.$("div")[0]
+		//2.$("div").get(0)
+		$("input")[0].onclick=function(){
+			this.style.width="100px";
+		}
+		$("input").get(0).onclick=function(){
+			$(this).css({"height":"100px","color":"blue"})
+		}
+	})
+	</script>
+</head>
+<body>
+	<input type="button" name="" value="显示效果">
+</body>
+</html>

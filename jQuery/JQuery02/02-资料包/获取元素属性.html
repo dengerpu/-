@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取元素属性</title>
+	<script type="text/javascript" src="jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			console.log($("a").prop("href"));
+			console.log($("a").attr("title"));
+			$("#btn").click(function(){
+				//1.prop()用来获取和设定元素固有的属性值
+				//2.attr()用来获取和设置自定义属性值
+				$("a").prop("href","http://www.baidu.com");
+				$("a").attr("title","http://www.baidu.com");
+
+			})
+		})
+	</script>
+</head>
+<body>
+	<input type="button" value="设置超链接" id="btn"/>
+<a href="#" title="我是小a">我是一个普通的a标签</a>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>元素位置</title>
+	   <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .father {
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            margin: 100px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .son {
+            width: 150px;
+            height: 150px;
+            background-color: purple;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+    </style>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript">
+    	$(function(){
+    		// $(".son").offset();得到的是一个对象,得到的位置是相对于dom文档的
+    		console.log($(".son").offset().left);
+    		$(".son").offset({
+    			"left":200
+    		})
+    		//position()方法，得到的是一个相对于父盒子的相对位置，不可以设置值，只能获取
+    		
+    		console.log($(".son").position());
+    	})
+    </script>
+</head>
+<body>
+	    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+</html>

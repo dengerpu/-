@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择器案例</title>
+	<script type="text/javascript" src="jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$(".box>p").css("backgroundColor","pink");
+		// $(".box p").css("backgroundColor","pink");
+		$(".box>p,span").css("backgroundColor","pink");
+		$("ul>li:first").css("color","red");
+		$("ul>li:last").css("color","red");
+		$("ul>li:even").css("backgroundColor","blue");//偶数相当于奇数，从0开始
+		$("ul>li:eq(1)").css("fontSize","30px");
+		$("ul>li:gt(1)").css("fontSize","50px");//索引大于1的  ，lt是小于
+		$("ol>li:eq(0)").siblings("li").css("backgroundColor","green");
+	})
+	</script>
+</head>
+<body>
+	<div class="box">
+		<p>我是div的第一个p</p>
+		<ul>
+				<li>我是ul中的第1个li</li>
+				<li>我是ul中的第2个li</li>
+				<li>我是ul中的第3个li</li>
+				<li>我是ul中的第4个li</li>
+				<li><p>我是ul中的第5个li还包了个p</p></li>
+		</ul>
+		<p>我是div的第2个p</p>
+		<span>我是div的第一个span</span>
+		<div>我是div中的第1个div</div>
+		<div>我是div中的第2个div
+		<ol>
+			<li>ol中的1</li>
+			<li>ol中的2</li>
+			<li>ol中的3</li>
+		</ol></div>
+	</div>
+</body>
+</html>
