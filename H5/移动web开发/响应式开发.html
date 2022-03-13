@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,
+    minimum-width=1.0,maximum-width=1.0">
+    <title>响应式开发原理</title>
+    <style>
+        .content{
+            height: 100px;
+            margin: 0 auto;
+            background-color: pink;
+        }
+        @media screen and (max-width: 767px){
+            .content{
+                width: 100%;
+            }
+        }
+        @media screen and (min-width: 768px){
+            .content{
+                width: 750px;
+            }
+        }
+        @media screen and (min-width: 992px){
+            .content{
+                width: 970px;
+            }
+        }
+        @media screen and (min-width: 1200px){
+            .content{
+                width: 1170px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content"></div>
+    超小屏幕（手机，小于768px）:设置宽度为100%；
+    小屏幕（平板，大于等于768px）:设置宽度为750px;
+    中等屏幕（桌面显示器，大于等于992px）:设置宽度970px;
+    大屏幕（大桌面显示器，大于等于1200px）:宽度设置为1170px;
+</body>
+</html>
