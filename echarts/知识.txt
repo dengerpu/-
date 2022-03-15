@@ -1,0 +1,88 @@
+flexible.js手淘框架，是一个用来适配移动端的js框架。
+手淘框架的核心原理就是根据不同的width给网页中html跟节点设置不同的font-size，
+然后所有的距离大小都用rem来代替，这样就实现了不同大小的屏幕都适应相同的样式了。
+
+Echarts使用五步曲：
+1.下载并引入Echarts.js文件
+2.准备一个有宽度和高度的DOM容器
+3.初始化Echarts实例	     通过var ~ = echarts.init(DOM容器)   echarts全局对象有一个init方法
+4.指定配置项和数据        option{}
+5.将配置项给Echarts实例对象(作用：渲染 数据发生变化需要重新渲染时也需要再次调用)   ~.setOption(option); 
+
+Echarts-基础配置:   可在官网文档中查看配置项的值都有什么
+    title：设置图表的标题
+    tooltip：图表的提示框组件  
+    legend：顶部图例组件
+    toolbox: 工具箱组件  比如可以把此刻的图表另存为图片
+    color: 数组 设置颜色
+
+系列图表配置,它决定显示哪种类型的图表、多少个折线线或柱形
+series:[{name,type,stack,data},{name,type,stack,data}]   
+	type是line则是线 bar则是柱形图  
+	stack是堆叠：数据会在前一个数据的基础上相加  一般删掉stack
+	name是和legend作用一样  保留一个即可
+    data是数据
+
+直角坐标系相关配置：
+    grid：通过对DOM容器的边距来控制大小  containLabel：是否显示刻度
+    xAxis yAxis :设置x、y轴的相关配置   可以指定类型是数字还是汉字   boundaryGap: 线条与坐标轴是否有间隙
+
+//示例
+option = {
+    title: {
+        text: '折线图堆叠'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [
+        {
+            name: '邮件营销',
+            type: 'line',
+            data: [120, 132, 101, 134, 90, 230, 210]
+        },
+        {
+            name: '联盟广告',
+            type: 'line',
+            data: [220, 182, 191, 234, 290, 330, 310]
+        },
+        {
+            name: '视频广告',
+            type: 'line',
+            data: [150, 232, 201, 154, 190, 330, 410]
+        },
+        {
+            name: '直接访问',
+            type: 'line',
+            data: [320, 332, 301, 334, 390, 330, 320]
+        },
+        {
+            name: '搜索引擎',
+            type: 'line',
+            data: [820, 932, 901, 934, 1290, 1330, 1320]
+        }
+    ]
+};
+
