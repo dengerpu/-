@@ -1,0 +1,11 @@
+.title{
+    text-align: center;
+}
+:global(.title){
+    text-align: center;
+}
+.box{
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    color: green;
+}

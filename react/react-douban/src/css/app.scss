@@ -1,0 +1,24 @@
+.logo {
+    width: 120px;
+    height: 31px;
+    background: #fff url(../images/logo.png);
+    margin: 16px 24px 16px 0;
+    float: left;
+    background-size: cover;
+    border-radius:20px ;
+}
+.content{
+    background: #fff;
+    height: 100%;
+}
+:global(.ant-menu-item){
+    height: 64px;
+    line-height: 64px;
+}
+
+:global(.ant-layout-has-sider){
+    height: 100%;
+}
+:global(.ant-layout-sider-children){
+    border-right: 1px solid #ccc;
+}
