@@ -1,0 +1,291 @@
+.de-content{
+	margin-top: 20px;
+}
+.crumb_wrap a{
+	margin-right: 10px;
+}
+.crumb_wrap{
+	height: 25px;
+}
+.preview_wrap{
+	width: 400px;
+	height: 600px;
+}
+.preview_img{
+	height: 398px;
+	border: 1px solid #ccc;
+}
+.preview_img img{
+	width: 398px;
+	height: 398px;
+}
+.preview_list{
+	position: relative;
+	height: 60px;
+	margin:60px 0 20px 0;
+}
+.preview_list img{
+	width: 56px;
+	height: 56px;
+}
+.list_item{
+	width: 320px;
+	height: 60px;
+	margin:0 auto;
+}
+.list_item li{
+	float: left;
+	width: 56px;
+	height: 56px;
+	border:2px solid transparent;
+	margin:0 2px;
+}
+.list_item li:hover{
+	border:2px solid red;
+}
+.arrow_prev,
+.arrow_next{
+	position: absolute;
+	top: 15px;
+	width: 22px;
+	height: 32px;
+}
+.arrow_prev{
+	left: 0;
+	background: url(../images/arrow-prev.png);
+}
+.arrow_next{
+	right: 0;
+	background: url(../images/arrow-next.png);
+}
+.share{
+	display: flex;
+	justify-content: space-between;
+}
+.itemInfo_wrap{
+	width: 718px;
+}
+.sku_name{
+	height: 30px;
+	font-size: 16px;
+	font-weight: 700;
+}
+.news{
+	height: 32px;
+	color: #e12228;
+}
+.summary dl{ 
+	overflow: hidden;
+}
+.summary dt,
+.summary dd{
+	float: left;
+}
+.summary dt{
+	width: 60px;
+	padding-left: 10px;
+	line-height: 36px;
+}
+.summary_price,
+.summary_promotion{
+	position: relative;
+	padding:10px 0;
+	background-color: #fee9eb;
+}
+.summary_price a{
+	color:#c81623;
+}
+.price{
+	font-size: 24px;
+	color: #e12228;
+}
+.remark{
+	position: absolute;
+	right: 10px;
+	top: 20px;
+}
+.skyblue{
+	color: skyblue;
+}
+.summary a.current{
+	border-color: #c81623;
+}
+.summary_promotion{
+	padding-top: 0px;
+}
+.summary_promotion dd{
+	width: 450px;
+	line-height: 36px;
+}
+.summary_promotion em{
+	width: 40px;
+	height: 22px;
+	background: #c81623;
+	text-align: center;
+	line-height: 22px;
+	color: #fff;
+}
+.summary_support dd{
+	line-height: 36px;
+}
+.choose_color a,
+.choose_version a,
+.choose_memory a{
+	display:inline-block; 
+	width:80px;
+	height: 32px;
+	background: #f7f7f7;
+	border:1px solid #ededed;
+	text-align: center;
+	line-height: 32px;
+}
+.choose_color,
+.choose_version,
+.choose_memory,
+.choose_type{
+	margin:10px 0;
+}
+.choose_type a{
+	display:inline-block; 
+	padding: 0 12px;
+	height: 32px;
+	background: #f7f7f7;
+	border:1px solid #ededed;
+	text-align: center;
+	line-height: 32px;
+}
+.choose_btns{
+	margin-top: 20px;
+}
+.choose_amount{
+	position: relative;
+	float: left;
+	width: 50px;
+	height: 46px;
+}
+.choose_amount input{
+	width: 33px;
+	height: 44px;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+.add,
+.reduce{
+	position: absolute;
+	width: 15px;
+	height: 22px;
+	border: 1px solid #ccc;
+	background: #f1f1f1;
+	right:0;
+	text-align: center;
+	line-height: 22px;
+}
+.add{
+	top:0;
+}
+.reduce{
+	bottom: 0;
+	cursor: not-allowed;  /*禁止鼠标样式*/
+}
+.addCar{
+	float: left;
+	width: 142px;
+	height: 46px;
+	font-weight: 700;
+	background: #c81623;
+	text-align: center;
+	line-height: 46px;
+	font-size: 18px;
+	color: #fff;
+	margin-left: 10px;
+}
+.aside{
+	width: 208px;
+	border: 1px solid #ccc;
+}
+.tab_list{
+	overflow: hidden;
+	height: 34px;
+
+}
+.tab_list li{
+	float: left;
+	height: 33px;
+	background: #f1f1f1;
+	border-bottom: #ccc;
+	text-align: center;
+	line-height: 34px;
+}
+.tab_list .current{
+	background: #fff;
+	color: red;
+	border-bottom: 0;
+}
+.first_tab{
+	width: 104px;
+}
+.second_tab{
+	width: 103px;
+	border-left: 1px solid #ccc;
+}
+.tab_con{
+	padding: 0 10px;
+	border: 1px solid #ccc;
+}
+.tab_con li{
+	width: 188px;
+	border-bottom: 1px solid #ccc;
+}
+.tab_con li h5{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;/*超出文字省略号显示*/
+	font-weight: 400;
+}
+.aside_price{
+	font-weight: 700;
+	margin:10px 0;
+}
+.as_addcar{
+	display: block;
+	margin:10px auto;
+	width: 88px;
+	height: 26px;
+	border:1px solid #ccc;
+	background-color:#f7f7f7; 
+	text-align: center;
+}
+.detail{
+	width: 978px;
+}
+.detail_tab_list{
+	height:39px;
+	border:1px solid #ccc;
+	background-color: #f1f1f1
+}
+.detail_tab_list li{
+	float: left;
+	height: 39px;
+	padding: 0 20px;
+	text-align: center;
+	line-height: 39px;
+	cursor: pointer;
+
+}
+.detail_tab_list .current{
+	background-color: #cc0033;
+	color:#fff;
+}
+.item_info{
+	padding: 20px 0 0 20px;
+}
+.item_info li{
+	line-height: 22px;
+}
+.more{
+	font-weight: 700;
+	font-family: "dengerpu";
+}
+.product_detail{
+	margin-bottom: 50px;
+}

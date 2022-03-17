@@ -1,0 +1,148 @@
+.sk{
+	position: absolute;
+	top: 10px;
+	left: 185px;
+	padding:5px 0 0 20px;
+	height: 32px;
+	border-left: 1px solid #b1191a;
+}
+.navitems li{
+	float: left;
+	height: 45px;
+	text-align: center;
+	line-height: 45px;
+	font-weight: 700;
+}
+.nav-left li{	
+	padding: 0 30px;	
+}
+.nav-left li a{
+	font-size: 16px;
+	color: #000;
+}
+.nav-left li a:hover{
+	color: #c81532;
+}
+.nav-right li{
+	padding: 0 20px;
+	line-height: 50px;
+	font-family: "dengerpu";
+}
+.bto{
+	font-size: 16px;
+}
+.head{
+	height: 120px;
+}
+.mobile{
+	height: 460px;
+	margin-top: 25px;
+}
+.mobile ul li{
+	float: left;
+	width: 288px;
+	height: 458px;
+	margin-right: 13px;
+	border:1px solid translate;
+}
+.mobile ul li:hover{
+	border:1px solid #cc3333;
+}
+.mobile ul li:last-child{
+	margin-right: 0;
+}
+.m-title{
+	font-size: 14px;
+	color:#ccc;
+	font-weight: normal;
+	padding: 0 10px;
+}
+.m-price{
+	padding: 10px 10px;
+}
+.m-price em{
+	font-size: 22px;
+	color: #e60012;
+}
+.m-price del{
+	font-size: 14px;
+	font-weight: normal;
+	color: #a4a4a4;
+}
+.jdt{
+	padding: 0 10px;
+	margin-bottom: 10px;
+}
+.bar{
+	display: inline-block;
+	vertical-align: center;
+	width: 130px;
+	height: 10px;
+	margin:0 5px;
+	border-radius: 5px;	
+	border:1px solid #b1191a;
+}
+.bar-in{
+	width: 87%;
+	height: 10px;
+	background: #f24349;
+}
+.jdt i,.jdt em{
+	color: #f24349;
+}
+.m-submit{
+	display: block;
+	width: 289px;
+	height: 46px;
+	line-height: 50px;
+	color: white;
+	font-size: 20px;
+	text-align: center;
+	background: #990033;
+}
+.m-submit:hover{
+	color: white;
+}
+
+/*页码跳转制作*/
+.page{
+	margin:40px auto;
+	text-align: center;
+	height: 40px;
+}
+.page_num,
+.page_skip{
+	display: inline-block;
+}
+.page_num a{
+	display: inline-block;
+	width: 36px;
+	height: 36px;
+	line-height: 36px;
+	border:1px solid #ccc;
+	background: #f7f7f7;
+}
+.page_num .current,
+.page_num .datted{
+	border:1px solid transparent;
+	background-color:transparent;
+}
+.page_num .pn_prev,.page_num .pn_next{
+	width: 82px;
+}
+.page_skip input{
+	width: 46px;
+	height: 36px;
+	text-align: center;
+	border:1px solid #ccc;
+	transition: all 0.5s;
+}
+.page_skip input:focus{
+	width: 88px;
+	border:1px solid skyblue;
+}
+.page_skip button{
+	margin-left: 5px;
+	width: 54px;
+	height: 36px;
+}
