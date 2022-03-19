@@ -1,0 +1,17 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+body ul {
+  padding: 0;
+  margin: 0;
+}
+::placeholder{
+    color: red;
+}
+#box{
+    width: 580px;
+    height: 340px;
+    background-color: pink;
+    background: url('../images/1.jpg');
+}

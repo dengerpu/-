@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态匹配路由</title>
+    <script src="vue.js"></script>
+    <script src="vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <router-link to="/user/1">user1</router-link>
+        <router-link to="/user/2">user2</router-link>
+        <router-link :to="{name:'user',params:{id:3}}">user3</router-link>
+        <router-link to="/user/4">user4</router-link>
+        <router-link to="/register">register</router-link>
+        <router-view></router-view>
+    </div>
+    <script>
+        var User = {
+            // template:`
+            // <h1>用户id:{{$route.params.id}}</h1>
+            // `
+            
+            //传递参数第二种形式
+            // props:['id'],
+            // template:`
+            // <h1>用户id:{{id}}</h1>
+            // `
+
+            //传递参数第三种形式,
+            props:['id','name','age'],
+            template:`<div>
+            <h1>用户id:{{id}},姓名：{{name}},年龄：{{age}}</h1>
+            <button @click="goRegister">跳转到注册页面</button>
+            <button @click="goBack">后退</button>
+            </div>
+            `,
+            methods:{
+                goRegister:function(){
+                    this.$router.push('/register')
+                },
+                goBack:function(){
+                    this.$router.go(-1);
+                }
+            }
+        }
+        var Register = {
+            template:`
+                <h1>注册页面</h1>
+            `
+        }
+        var router = new VueRouter({
+            routes:[
+                {path:'/',redirect:'/user/1'},
+                // //1.props为boolean类型
+                // {path:'/user/:id',component:User,props:true}
+
+                // 2.props为对象类型,这样的话id传不过去
+                // {path:'/user/:id',component:User,props:{
+                //     name:'lisi',
+                //     age:18
+                // }}
+
+                // 3.props为函数类型 route=>({})  相当于返回这个对象
+                {
+                    name:'user',  //命名路由
+                    path:'/user/:id',
+                    component:User,
+                    props:route=>({
+                    name:'zhangsan',
+                    age:18,
+                    id:route.params.id
+                })},
+                {path:"/register",component:Register}
+            ]
+        })
+        var vm = new Vue({
+            el:'#app',
+            data:{
+
+            },
+            router
+        })
+    </script>
+</body>
+</html>

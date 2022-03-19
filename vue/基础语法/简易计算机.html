@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易计算机</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="a"><br>
+        <input type="text" v-model="b"><br>
+        <input type="submit" v-on:keyup.enter="result" @click="result">计算</input><br>
+        result:<input type="text" v-model='c'>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                a:'',
+                b:'',
+                c:''
+            },
+            methods:{
+                result:function(){
+                    this.c= parseInt(this.a)+parseInt(this.b);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

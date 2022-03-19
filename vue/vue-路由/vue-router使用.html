@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue-router使用</title>
+    <!-- 1.引入相关文件，先引入vue.js再引入vue-router.js，因为后者要依赖前者 -->
+    <script src="vue.js"></script>
+    <script src="vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 2.添加路由连接 to属性相当于href,属性值#开头的哈希值-->
+        <router-link to="/user">user</router-link>
+        <router-link to="/register">register</router-link>
+
+        <!-- 3.添加路由填充位（或者路由占位符）将来通过路由规则匹配到的组件，会被渲染到这里 -->
+        <router-view></router-view>
+    </div>   
+    <script>
+        // 4.定义路由组件
+        var User = {
+            template:`
+                <h1>User</h1>
+            `
+        }
+        var Tab1 = {
+            template:' <h1>tab1</h1>'
+        }
+        var Tab2 = {
+            template:' <h1>tab2</h1>'
+        }
+        //实现路由嵌套
+        var Register = {
+            template:`
+            <div>
+                <h1>Register</h1>
+                <hr>
+                <!--子路由链接-->
+                <router-link to="/register/tab1">tab1</router-link>
+                <router-link to="/register/tab2">tab2</router-link>
+                <!--子路由填充位-->
+                <router-view />
+            <div>
+            `
+        }
+        //5.创建路由实例并配置路由规则
+        var router = new VueRouter({
+            routes:[
+                //重定向 ,利用redirect:跳转到目标地址
+                {path:'/',redirect:'/register'},
+                {path:'/user',component:User},
+                {path:'/register',component:Register,
+                //添加自连接路由
+                    children:[
+                        {path:'/register/tab1',component:Tab1},
+                        {path:'/register/tab2',component:Tab2}
+                    ]
+                }
+            ]
+        })
+        //把路由挂载到vue根实例中
+        var vm = new Vue({
+            el:'#app',
+            data:{
+
+            },
+            router  //相当于 router:router
+        })
+    </script>
+</body>
+</html>

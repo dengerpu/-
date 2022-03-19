@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单修饰域</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+         <input type="text" v-model.number="age"><br>
+         <input type="text" v-model.trim="str"><br>
+         <input type="text" v-model.lazy="msg">
+         <div>{{msg}}</div>
+         <button v-on:click="handel">提交</button>
+    </div> 
+    <script>
+// - number  转换为数值
+
+// - 注意点：	
+// - 当开始输入非数字的字符串时，因为Vue无法将字符串转换成数值
+// - 所以属性值将实时更新成相同的字符串。即使后面输入数字，也将被视作字符串。
+
+// - .trim  自动过滤用户输入的首尾空白字符
+
+// - 只能去掉首尾的 不能去除中间的空格
+
+// - .lazy   将input事件切换成change事件
+
+// - .lazy 修饰符延迟了同步更新属性值的时机。即将原本绑定在 input 事件的同步逻辑转变为绑定在 change 事件上
+// - 在失去焦点 或者 按下回车键时才更新
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                age:'',
+                str:'',
+                msg:''
+            },
+            methods:{
+                handel:function(){
+                    //console.log(this.age+10);
+                    console.log(this.str);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

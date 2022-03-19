@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind样式绑定</title>
+    <script src="vue.js"></script>
+    <style>
+        .active{
+            width: 100px;
+            height:100px;
+            border: 5px solid skyblue;
+        }
+        .abc{
+            background-color: pink;
+        }
+        .error{
+            color: red;
+            font-size: 28px;
+        }
+        .pre{
+            color: red;
+            font-size: 28px;
+        }
+        .test{
+            background-color: sandybrown;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="pre" :class="{active:isActive,abc:isAbc}">
+            <span>文字</span>
+        </div>
+        <button @click="toggle">切换</button>
+    </div>
+    <div id="arr">
+        <div v-bind:class="[activeClass,errorClass,{test:isTest}]">数组语法</div>
+        <button v-on:click="toggle">点击去掉样式</button>
+    </div>
+    <div class="jh">
+        <div :class="arrClass">数组简化处理</div>
+        <div :class="objClass">对象简化处理</div>
+    </div>
+    <script>
+        // 对象语法 v-bind:class="{active:isActive}"
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                isActive:true,
+                isAbc:true,
+               
+            },
+            methods:{
+              toggle: function(){
+                this.isActive = !this.isActive;
+                this.isAbc = !this.isAbc;
+                }
+            }
+        }) 
+         //数组语法 v-bind:class='[activeClass,errorClass]'
+        var app = new Vue({
+            el:"#arr",
+            data:{
+                activeClass:'active',
+                errorClass:'error',
+                isTest:true
+            },
+            methods:{
+               toggle :function(){
+                this.activeClass='';
+                this.errorClass='';
+            }
+            }
+        })
+    //     //      样式绑定相关语法细节：
+    //   1、对象绑定和数组绑定可以结合使用
+    //   2、class绑定的值可以简化操作
+    //   3、默认的class如何处理？默认的class会保留
+    // arrClasses: ['active','error'],
+    //     objClasses: {
+    //       active: true,
+    //       error: true
+    //     }
+    
+    // 简化处理
+     var vm = new Vue({
+         el:'.jh',
+         data:{
+             arrClass:['active','error'],
+         objClass:{
+             active: true,
+             error: true
+         }
+        }
+     })
+    </script>   
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function queryData(url){
+            var p = new Promise(function(resolve,reject){
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState!=4)return;
+                    if(xhr.readyState ==4 && xhr.status ==200){
+                        //处理正常的情况
+                        resolve(xhr.responseText);
+                    }else{
+                        reject('服务器错误');
+                    }
+                };
+                xhr.open('get',url);
+                xhr.send();
+            })
+            return p;
+        }
+        // queryData('http://localhost/data').then(data=>{
+        //     console.log(data);
+        //     return queryData('http://localhost/data1')
+        // }).then((data)=>{
+        //     console.log(data);
+        //     return queryData('http://localhost/data2')
+        // }).then((data)=>{
+        //     console.log(data);
+        // })
+
+        // then得到Promise正确返回的结果
+        // catch得到错误信息
+        // finally成功与否都会执行
+        // queryData('http://localhost/data').then(data=>{
+        //     console.log(data);
+        // }).catch(err=>{
+        //     console.log(err);
+        // }).finally(()=>{
+        //     console.log('完成')
+        // })
+
+        // all()所有的异步任务执行完才会触发，
+        // race()只要有一个异步任务执行完，，就触发
+        var p1 = queryData('http://localhost/data');
+        var p2 = queryData('http://localhost/data1');
+        var p3 = queryData('http://localhost/data2');
+        // Promise.all([p1,p2,p3]).then((res)=>{
+        //     console.log(res);
+        // })
+        Promise.race([p1,p2,p3]).then((res)=>{
+            console.log(res);
+        })
+        
+
+    </script>
+</body>
+</html>

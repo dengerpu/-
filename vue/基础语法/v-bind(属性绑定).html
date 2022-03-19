@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性绑定</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <a v-bind:href="href" :name="name">百度</a>
+       <button @click="toggle">切换</button>
+    </div>
+       <script>
+           var vm = new Vue({
+               el:'#app',
+               data:{
+                   href:'http://www.baidu.com',
+                   name:'baidu'
+               },
+               methods:{
+                   toggle:function(){
+                        this.href = 'http://www.jd.com'
+                   }
+               }
+           })
+       </script>  
+</body>
+</html>

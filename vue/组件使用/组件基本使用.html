@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button-couter></button-couter>
+        <button-couter></button-couter>
+        <button-couter></button-couter>
+        <hello-word></hello-word>
+    </div>
+    <script>
+        /*组件注册*/
+         // 1、组件参数的data值必须是函数 
+      // 同时这个函数要求返回一个对象  
+        Vue.component('button-couter',{
+            data:function(){
+                return {
+                    count: 0
+                }
+            },
+            template:'<button @click="handle">点击了{{count}}次</button>',
+            methods:{
+                handle:function(){
+                    this.count = this.count+1;
+                }
+            }
+        })
+        Vue.component('HelloWord',{
+            data:function(){
+                return {
+                    msg:'helloword'
+                }
+            },
+            template:'<div>{{msg}}</div>'
+        })
+        var vm = new Vue({
+            el:'#app',
+            data:{
+
+            }
+        })
+    </script>
+</body>
+</html>

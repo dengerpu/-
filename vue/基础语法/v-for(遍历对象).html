@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for遍历对象</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <!-- value(属性值) key(属性值) index(索引) -->
+            <li v-if="value==13" v-for="(value,key,index) in obj">{{key+':'+value+'---'+index}}</li>
+        </ul>
+    </div>
+    <script>
+        //原生js遍历对象
+        var obj = {
+                         uname: 'zhangsan',
+                        age: 13,
+                        gender: 'female'
+                 };
+        for(var key in obj){
+            console.log(key,obj[key]);
+        }
+
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                obj: {
+                         uname: 'zhangsan',
+                        age: 13,
+                        gender: 'female'
+                 }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-once</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div v-text="msg" v-once></div>
+    <script>
+        //只渲染元素和组件一次。随后的重新渲染
+        //，元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。
+        var vm = new Vue({
+            el:'div',
+            data:{
+                msg:'我只会编译一次，值不会被修改'
+            }
+        })
+    </script>
+</body>
+</html>

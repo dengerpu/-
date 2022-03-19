@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+            <a href="#/tab1">tab1</a>
+            <a href="#/tab2">tab2</a>
+    <a href="#/tab3">tab3</a>
+    <component :is="comName"></component>
+</div>
+    <script>
+
+        const tab1 = {
+            template:'<h1>tab1</h1>'
+        }
+        const tab2 = {
+            template:'<h1>tab2</h1>'
+        }
+        const tab3 = {
+            template:'<h1>tab3</h1>'
+        }
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                comName:'tab1'
+            },
+            components:{
+                tab1,
+                tab2,
+                tab3
+            }
+        })
+        //监听 window 的 onhashchange 事件，
+        //根据获取到的最新的 hash 值，切换要显示的组件的名称
+        window.onhashchange = function(){
+            //console.log(location.hash);
+            switch(location.hash.slice(1)){
+                case '/tab1': vm.comName='tab1'; break;
+                case '/tab2': vm.comName='tab2'; break;
+                case '/tab3': vm.comName='tab3'; break;
+            }
+        }
+    </script>
+
+</body>
+</html>

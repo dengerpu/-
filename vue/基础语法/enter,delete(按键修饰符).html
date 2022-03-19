@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>按键修饰符</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div class="app">
+        <input type="text" v-on:keyup.delete="clear" v-model="user"><br>
+        <input type="text" v-on:keyup.f1="fn" v-model="pwd">
+        <button v-on:keyup.enter='submit1'>提交</button>
+    </div>
+    <script>
+        Vue.config.keyCodes.f1=65;
+        var vm = new Vue({
+            el:'.app',
+            data:{
+                user:'',
+                pwd:''
+            },
+            methods:{
+                submit1:function(){
+                    console.log(this.user)
+                    console.log(this.pwd)
+                },
+                clear:function(){
+                    this.user="";
+                    this.pwd="";
+                },
+                fn:function(){
+                    console.log(this.pwd)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

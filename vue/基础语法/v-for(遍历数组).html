@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in arr">{{item}}</li>
+        </ul>
+        <p>-----------------------</p>
+        <ul>
+            <li v-for="(item,index) in arr">{{item+'-----'+index}}</li>
+        </ul>
+        <p>----------------------------</p>
+        <ul>
+            <!-- key的作用：帮助vue区分不同的元素，从而提高性能 -->
+            <li :key="item.id" v-for="(item,index) in myFruits">
+                <span>{{item.ename}}</span>
+                <span>--------</span>
+                <span>{{item.cname}}</span>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                arr:['apple','branner','pear'],
+                myFruits: [{
+          id: 1,
+          ename: 'apple',
+          cname: '苹果'
+        },{
+          id: 2,
+          ename: 'orange',
+          cname: '橘子'
+        },{
+          id: 3,
+          ename: 'banana',
+          cname: '香蕉'
+        }]
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件对象</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+    <button v-on:click="handel">按钮</button>
+    <button @click="handle(123,$event)">事件对象</button>
+    <!-- 如果没有参数，event事件默认存在 -->
+    <!-- 如果有参数，$event是固定格式，并且要写在 -->
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            methods:{
+                handel:function(event){
+                    console.log(event);
+                    console.log(e.target.innerHTML);
+                },
+                handle:function(p,event){
+                    console.log(p);
+                   console.log(event);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

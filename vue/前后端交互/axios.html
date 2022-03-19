@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第三方插件axios</title>
+    <script src="axios.js"></script>
+</head>
+<body>
+    <script>
+
+        // axios基本用法
+        // axios.get('http://localhost/data').then(res=>{
+        //     //data属性是固定的用法，用于获取后台数据
+        //     console.log(res.data);
+        //     console.log(res);
+        // })
+
+        //get delete传递参数
+        // ?id=13  或者 /123  都可以
+        // axios.delete('http://localhost/fetch/1235').then(res=>{
+        //     //data属性是固定的用法，用于获取后台数据
+        //     console.log(res.data);
+        // })
+
+        // 传参的有第二种形式，通过params来传递
+        // axios.get('http://localhost/fetch',{
+        //     params:{
+        //         id:13
+        //     }
+        // }).then(res=>{
+        //     //data属性是固定的用法，用于获取后台数据
+        //     console.log(res.data);
+        // })
+
+        // post和put请求参数传递一样
+        // axios.post('http://localhost/fetch',
+        //         {
+        //         name:"zhangsan",
+        //         age:18
+        //     },{
+        //     headers: {'Content-Type': 'application/X-www-form-urlencoded'} //加上这个
+        //     }
+        // ).then(res=>{
+        //     //data属性是固定的用法，用于获取后台数据
+        //     console.log(res.data);
+        // })
+
+        //通过URLSearchParams传递参数
+        // var params = new URLSearchParams();
+        // params.append('name','zhangsan');
+        // params.append('age',18);
+        // axios.post('http://localhost/fetch',params).then(res=>{
+        //     //data属性是固定的用法，用于获取后台数据
+        //     console.log(res.data);
+        // })
+
+        // 全局配置
+        axios.defaults.timeout=3000;  //超时时间
+        axios.defaults.baseURL='http:localhost'; //默认地址
+        axios.defaults.headers['mytoken']='hello'; //配置请求头信息
+    //     axios.get('data').then(function(ret){
+    //   console.log(ret.data)
+    // })
+
+    //请求拦截器
+        axios.interceptors.request.use(function(config){
+            config.headers.mytoken = 'nihao';
+            return config;
+        },function(err){
+            console.log(err);
+        })
+    //响应拦截器
+        axios.interceptors.response.use(function(res){
+            var data = res.data;
+            return data;
+        },function(err){
+            console.log(err);
+        })
+        axios.get('/data').then(function(data){
+      console.log(data)
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+           text-align: center;
+           line-height: 50px;
+           background-color: aqua;
+        }
+        span{
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <div class="box">
+            <span v-on:click="handel">点击</span>
+        </div>
+        <a href="www.baidu.com" @click.prevent>百度</a>
+    </div>
+    <script>
+        //stop阻止冒泡，prevent阻止事件的默认行为，这两个可以链式调用，
+        //但是顺序不同，效果也会不同
+        var vm = new Vue({
+            el:'.app',
+            methods:{
+                handel:function(){
+                    alert(11);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

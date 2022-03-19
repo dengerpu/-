@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div style="color: blueviolet;">{{pmsg}}</div>
+        <son :title="pmsg"></son>
+        <son title="12" :pnumber="12"></son>
+        <!-- 不加：号，是字符串类型，加了冒号之后是原来的类型 -->
+    </div>
+    <script>
+        Vue.component('son',{
+            props:['title','pnumber'],
+            data:function(){
+                return {
+                    msg:'子组件的内容'
+                }
+            },
+            template:`
+            <div>{{msg}}
+                <span>|</span>
+                <span>{{title}}</span>
+                <span>{{pnumber+12}}</span>
+                </div>
+            `
+        })
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                pmsg:'父组件的内容'
+            }
+        })
+    </script>
+</body>
+</html>

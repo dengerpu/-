@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch用法</title>
+</head>
+<body>
+    <script>
+        // text()是fetch API的一个方法，它返回一个Promise对象，用于获取后台返回的数据
+        // fetch('http://localhost/data').then(data=>{
+        //     return data.text();
+        // }).then(data=>{
+        //     console.log(data);
+        // })
+
+        // get，delete方式传递参数
+        // fetch('http://localhost/fetch?id=1',{
+        //     // method:'get'
+        //     method:'delete'
+        // }).then(data=>{
+        //     return data.text();
+        // }).then(data=>{
+        //     console.log(data);
+        // })
+
+        // get,delete传递参数的另一种形式
+        // fetch('http://localhost/fetch/123',{
+        //     method:'delete'
+        // }).then(data=>{
+        //     return data.text();
+        // }).then(data=>{
+        //     console.log(data);
+        // })
+
+        //put,post请求传递参数
+        // fetch('http://localhost/fetch',{
+        //     method:'post',
+        //     body:'name=zhangsan&age=15',
+        //     headers:{
+        //         'Content-Type':'application/x-www-form-urlencoded'
+        //     }
+
+        // }).then(data=>{
+        //     return data.text();
+        // }).then(data=>{
+        //     data=  JSON.parse(data);
+        //     console.log(data);
+        // })
+        //另一种传递json数据格式
+        var json =JSON.stringify({
+                name:'zhangsan',
+                age:'222'
+            });
+        fetch('http://localhost/fetch',{
+            method:'put',
+            body:json,
+            headers:{
+                'Content-Type':'application/json'
+            }
+
+        }).then(data=>{
+            return data.text();
+        }).then(data=>{
+            data=  JSON.parse(data);
+            console.log(data);
+        })
+    </script>
+</body>
+</html>

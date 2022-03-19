@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on事件绑定</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div class="app">
+        <input type="button"@click='num--' value="-">
+        <span>{{num}}</span>
+         <input type="button" v-on:click='num++' value="+">
+         <button v-on:click='jian'>减</button>
+         <button @click='jia()'>加</button>
+    </div>
+    <script>
+        //绑定事件  v-on:click='事件算法'
+        // @click='事件算法'
+        var vm = new Vue({
+            el:'.app',
+            data:{
+                num:0
+                },
+            methods:{
+                jian:function(){
+                    this.num--
+                 },
+                jia:function(){
+                    this.num++
+                }
+            }
+        })
+    </script>
+</body>
+</html>
